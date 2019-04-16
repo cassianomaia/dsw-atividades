@@ -4,7 +4,7 @@ O sistema deve possuir um cadastro de clientes, com os seguintes dados: e-mail,s
 O sistema deve possuir um cadastro de locadoras, com os seguintes dados: e-mail, senha, CNPJ,  nome e cidade.
 O sistema deve possuir um cadastro de locações, com os seguintes dados: CPFdo cliente, CNPJ da locadora e dia/horário da locação. Assume-se que a duraçãoda locação é de 1 hora e sempre inicia-se em “hora cheia” (13h 00min etc)
 O sistema deve atender aos seguintes requisitos:
-- **R1:** CRUD1 de clientes (requer login de administrador)
+- **R1:** CRUD**¹** de clientes (requer login de administrador)
 - **R2:** CRUD de locadoras (requer login de administrador)
 - **R3:** Listagem de todos as locadoras em uma única página (não requerlogin)
 - **R4:** Listagem de todos as locadoras por cidade (não requer login)

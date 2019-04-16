@@ -1,5 +1,4 @@
 ## Atividade Avaliativa 01 - Sistema para locação de bicicletas 
----------------------------------------------
 ### Requisitos
 O sistema deve possuir um cadastro de clientes, com os seguintes dados: e-mail,senha, CPF,  nome, telefone,  sexo e data de nascimento.
 O sistema deve possuir um cadastro de locadoras, com os seguintes dados: e-mail, senha, CNPJ,  nome e cidade.
@@ -15,7 +14,7 @@ O sistema deve atender aos seguintes requisitos:
 - **R8:** Listagem de todas as locações de uma locadora (requer login dalocadora via e-mail + senha). Depois de fazer login, a locadora podevisualizar todas as suas locações gravadas.
 - **R9:** O sistema deve ser internacionalizado em pelo menos dois idiomas:português + outro de sua escolha.O sistema deve tratar todos os erros possíveis (cadastros duplicados, problemastécnicos, etc) mostrando uma página de erros amigável ao usuário e registrandoo erro no console.
 
-**¹CRUD:** **C**reate, **R**ead, **U**pdate & **D**elete
+###### **¹CRUD:** **C**reate, **R**ead, **U**pdate & **D**elete
 ---------------------------------------------
 ### Tecnologias
 Arquitetura: Modelo-Visão-Controlador

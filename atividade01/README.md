@@ -1,8 +1,8 @@
-##Desenvolvimento de Software para Web
-###Atividade Avaliativa 1 - 20680 - TURMA B - Quinta-feira
-###Sistema para locação de bicicletas
+## Desenvolvimento de Software para Web
+### Atividade Avaliativa 1 - 20680 - TURMA B - Quinta-feira
+### Sistema para locação de bicicletas
 ---------------------------------------------
-###Requisitos
+### Requisitos
 O sistema deve possuir um cadastro de clientes, com os seguintes dados: e-mail,senha, CPF,  nome, telefone,  sexo e data de nascimento.
 O sistema deve possuir um cadastro de locadoras, com os seguintes dados: e-mail, senha, CNPJ,  nome e cidade.
 O sistema deve possuir um cadastro de locações, com os seguintes dados: CPFdo cliente, CNPJ da locadora e dia/horário da locação. Assume-se que a duraçãoda locação é de 1 hora e sempre inicia-se em “hora cheia” (13h 00min etc)
@@ -18,7 +18,7 @@ O sistema deve atender aos seguintes requisitos:
 - R9: O sistema deve ser internacionalizado em pelo menos dois idiomas:português + outro de sua escolha.O sistema deve tratar todos os erros possíveis (cadastros duplicados, problemastécnicos, etc) mostrando uma página de erros amigável ao usuário e registrandoo erro no console.
 
 ---------------------------------------------
-###Tecnologias
+### Tecnologias
 Arquitetura: Modelo-Visão-Controlador
 
 Tecnologias: 
@@ -29,10 +29,10 @@ Tecnologias:
 ¹CRUD: Create, Read, Update & Delete
 
 ---------------------------------------------
-###Como instalar
+### Como instalar
 
 ---------------------------------------------
-###Grupo
+### Grupo
 - Cassiano Maia -726507
 - Rodrigo Pesse de Abreu - 726588
 

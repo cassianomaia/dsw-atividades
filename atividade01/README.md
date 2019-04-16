@@ -14,18 +14,14 @@ O sistema deve atender aos seguintes requisitos:
 - **R8:** Listagem de todas as locações de uma locadora (requer login dalocadora via e-mail + senha). Depois de fazer login, a locadora podevisualizar todas as suas locações gravadas.
 - **R9:** O sistema deve ser internacionalizado em pelo menos dois idiomas:português + outro de sua escolha.O sistema deve tratar todos os erros possíveis (cadastros duplicados, problemastécnicos, etc) mostrando uma página de erros amigável ao usuário e registrandoo erro no console.
 
-###### **¹CRUD:** **C**reate, **R**ead, **U**pdate & **D**elete
----------------------------------------------
-### Tecnologias
 Arquitetura: Modelo-Visão-Controlador
 
 Tecnologias: 
 - JSP
 - Servlet & JDBC (Lado Servidor) 
 - Javascript & CSS (Lado Cliente)
----------------------------------------------
-### Como instalar
 
+###### **¹CRUD:** **C**reate, **R**ead, **U**pdate & **D**elete
 ---------------------------------------------
 ### Grupo
 - Cassiano Maia -726507

@@ -1,5 +1,4 @@
 
-
 import javax.sql.DataSource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,8 +23,8 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
         builder.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery("select email, senha, ativo"
                         + " from Usuario where email = ?")
-                .authoritiesByUsernameQuery("select email, nome "
-                        + "from Papel where email = ?")
+                .authoritiesByUsernameQuery("select email, tipo "
+                        + "from TipoUsuario where email = ?")
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 

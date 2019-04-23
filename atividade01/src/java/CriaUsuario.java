@@ -30,7 +30,6 @@ public class CriaUsuario {
             userStatement.setString(5, encoder.encode("admin"));
             userStatement.setString(6, "M");
             userStatement.setBoolean(7, true);
-
             userStatement.execute();
 
             PreparedStatement roleStatement = conn.prepareStatement(roleSql);

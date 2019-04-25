@@ -4,5 +4,7 @@
 <jsp:include page="helpers/header.jsp" />
 <body>
 <a href="/atividade01/locadora"> Locadora </a>
+<br>
+<a href="/atividade01/usuario"> Usuários </a>
 </body>
 </html>

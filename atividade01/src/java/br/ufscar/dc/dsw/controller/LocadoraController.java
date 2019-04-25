@@ -59,7 +59,7 @@ public class LocadoraController extends HttpServlet{
     private void lista(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Locadora> listaLocadora = dao.getAll();
-        request.setAttribute("listaLocadora", listaLocadora);
+        request.setAttribute("listaLocadoras", listaLocadora);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/locadora/lista.jsp");
         dispatcher.forward(request, response);
     }

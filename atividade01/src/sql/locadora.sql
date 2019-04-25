@@ -6,7 +6,7 @@ drop table Usuario;
 create table Usuario (
 id integer not null generated always as identity (start with 1, increment by 1),
 email varchar(50) not null,
-cpf integer not null,
+cpf varchar(50) not null,
 nome varchar(100) not null,
 telefone integer not null,
 senha varchar(100) not null,

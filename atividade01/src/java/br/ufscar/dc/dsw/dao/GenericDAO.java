@@ -4,16 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class modelDAO {
-    
-    public modelDAO() {
-        try {
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-    
+public class GenericDAO {
+
     protected Connection getConnection() throws SQLException {
         return DriverManager.getConnection("jdbc:derby://localhost:1527/DBLocadora", "root", "root");
     }

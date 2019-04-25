@@ -47,6 +47,3 @@ cnpj varchar(100) not null,
 data date not null,
 CONSTRAINT Locacao_PK PRIMARY KEY (cpf, cnpj)
 );
-
-
-select * from locadora;

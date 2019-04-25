@@ -42,7 +42,9 @@ drop table Locacao;
 
 create table Locacao (
 cpf varchar(50) not null,
-cnpj varchar(100) not null
+cnpj varchar(100) not null,
+data date not null,
+CONSTRAINT Locacao_PK PRIMARY KEY (cpf, cnpj)
 );
 
 

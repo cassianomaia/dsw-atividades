@@ -106,6 +106,7 @@ public class LocadoraDAO extends modelDAO {
             statement.setString(3, locadora.getSenha());
             statement.setInt(4, locadora.getCnpj());
             statement.setString(5, locadora.getCidade());
+            statement.setInt(6, locadora.getId());
             statement.executeUpdate();
 
             statement.close();

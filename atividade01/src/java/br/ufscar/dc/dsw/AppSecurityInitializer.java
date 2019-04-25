@@ -1,3 +1,5 @@
+package br.ufscar.dc.dsw;
+
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

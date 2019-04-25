@@ -6,8 +6,8 @@ drop table Usuario;
 create table Usuario (
 id integer not null generated always as identity (start with 1, increment by 1),
 email varchar(50) not null,
-cpf varchar(50) not null,
-NOME varchar(100) not null,
+cpf integer not null,
+nome varchar(100) not null,
 telefone integer not null,
 senha varchar(100) not null,
 sexo varchar(1) not null,
@@ -26,10 +26,11 @@ constraint TipoUsuario_PK PRIMARY KEY (id)
 );
 
 -- Tabela Locadora
-drop tabble Locadora;
+drop table Locadora;
 
 create table Locadora (
 id integer not null generated always as identity (start with 1, increment by 1),
+nome varchar(50) not null,
 email varchar(50) not null,
 senha varchar(100) not null,
 cnpj varchar(100) not null,

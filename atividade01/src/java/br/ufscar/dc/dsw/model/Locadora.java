@@ -3,6 +3,7 @@ package br.ufscar.dc.dsw.model;
 
 public class Locadora {
     private Integer id;
+    private String nome;
     private String email;
     private String senha;
     private Integer cnpj;
@@ -12,15 +13,16 @@ public class Locadora {
         this.id = id;
     }
     
-    public Locadora( String email, String senha, Integer cnpj, String cidade){
+    public Locadora(String nome, String email, String senha, Integer cnpj, String cidade){
+        this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.cnpj = cnpj;
         this.cidade = cidade;
     }
     
-    public Locadora(Integer id, String email, String senha, Integer cnpj, String cidade){
-        this(email, senha, cnpj, cidade);
+    public Locadora(Integer id, String nome, String email, String senha, Integer cnpj, String cidade){
+        this(nome, email, senha, cnpj, cidade);
         this.id = id;
     }
     
@@ -28,6 +30,10 @@ public class Locadora {
     // Getters
     public Integer getId(){
         return id;
+    }
+    
+    public String getNome() {
+        return nome;
     }
     
     public String getEmail() {
@@ -50,6 +56,10 @@ public class Locadora {
     
     public void setId(Integer id) {
         this.id = id;
+    }
+    
+    public void setNome(String nome) {
+        this.nome = nome;
     }
     
     public void setEmail(String email) {

@@ -33,19 +33,19 @@ public class UsuarioController extends HttpServlet {
 
         try {
             switch (action) {
-                case "/cadastro":
+                case "cadastro":
                     apresentaFormCadastro(request, response);
                     break;
-                case "/insercao":
+                case "insercao":
                     insere(request, response);
                     break;
-                case "/remocao":
+                case "remocao":
                     remove(request, response);
                     break;
-                case "/edicao":
+                case "edicao":
                     apresentaFormEdicao(request, response);
                     break;
-                case "/atualizacao":
+                case "atualizacao":
                     atualize(request, response);
                     break;
                 default:
@@ -61,13 +61,13 @@ public class UsuarioController extends HttpServlet {
             throws ServletException, IOException {
         List<Usuario> listaUsuario = dao.getAll();
         request.setAttribute("listaUsuario", listaUsuario);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("views/usuario/lista.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/usuario/lista.jsp");
         dispatcher.forward(request, response);
     }
 
     private void apresentaFormCadastro(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("views/usuario/formulario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/usuario/formulario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -75,7 +75,7 @@ public class UsuarioController extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Usuario usuario = dao.get(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("views/usuario/formulario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/usuario/formulario.jsp");
         request.setAttribute("usuario", usuario);
         dispatcher.forward(request, response);
     }

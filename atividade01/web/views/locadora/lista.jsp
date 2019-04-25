@@ -6,9 +6,9 @@
 <center>
     <h1>Gerenciamento de Locadoras</h1>
     <h2>
-        <a href="/locadora/cadastro">Adicionar nova Locadora</a>
+        <a href="cadastro">Adicionar nova Locadora</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="/locadora/lista">Lista de Locadoras</a>
+        <a href="lista">Lista de Locadoras</a>
 
     </h2>
 </center>
@@ -35,9 +35,9 @@
 
 
                 <td>
-                    <a href="locaodara/edicao?id=<c:out value='${locadora.id}' />">Edição</a>
+                    <a href="edicao?id=<c:out value='${locadora.id}' />">Edição</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="locadora/remocao?id=<c:out value='${locadora.id}' />"
+                    <a href="remocao?id=<c:out value='${locadora.id}' />"
                        onclick="return confirm('Tem certeza de que deseja excluir este item?');">
                         Remoção
                     </a>

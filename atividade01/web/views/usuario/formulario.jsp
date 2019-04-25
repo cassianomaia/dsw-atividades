@@ -6,7 +6,7 @@
 <center>
     <h1>Gerenciamento de Usuarios</h1>
     <h2>
-        <a href="new">Adicionar novo Usuario</a>
+        <a href="cadastro">Adicionar novo Usuario</a>
         &nbsp;&nbsp;&nbsp;
         <a href="lista">Lista de Usuarios</a>
 

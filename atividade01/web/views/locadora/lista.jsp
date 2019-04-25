@@ -19,28 +19,33 @@
             <th>ID</th>
             <th>Nome</th>
             <th>Email</th>
-            <th>CNPJ</th>
-            <th>Cidade</th>
-            <th>Ações</th>
+            <th>Senha</th>
+            <th>Telefone</th>
+            <th>Sexo</th>
+            <th>CPF</th>
+            <th>Ativo</th>
         </tr>
-        <c:forEach var="locadora" items="${requestScope.listaLocadora}">
+        <c:forEach var="usuario" items="${requestScope.listaUsuario}">
             <tr>
-                <td><c:out value="${locadora.id}" /></td>
-                <td><c:out value="${locadora.nome}" /></td>
-                <td><c:out value="${locadora.email}" /></td>
-                <td><c:out value="${locadora.cnpj}" /></td>
-                <td><c:out value="${locadora.cidade}" /></td>
+                <td><c:out value="${usuario.id}" /></td>
+                <td><c:out value="${usuario.nome}" /></td>
+                <td><c:out value="${usuario.email}" /></td>
+                <td><c:out value="${usuario.senha}" /></td>
+                <td><c:out value="${usuario.telefone}" /></td>
+                <td><c:out value="${usuario.sexo}" /></td>
+                <td><c:out value="${usuario.cpf}" /></td>
+                <td><c:out value="${usuario.ativo}" /></td>
                 <td>
                     <a href="locaodara/edicao?id=<c:out value='${locadora.id}' />">Edição</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <a href="locadora/remocao?id=<c:out value='${locadora.id}' />" 
                        onclick="return confirm('Tem certeza de que deseja excluir este item?');">
                         Remoção
-                    </a>                    	
+                    </a>
                 </td>
             </tr>
         </c:forEach>
     </table>
-</div>	
+</div>
 </body>
 </html>

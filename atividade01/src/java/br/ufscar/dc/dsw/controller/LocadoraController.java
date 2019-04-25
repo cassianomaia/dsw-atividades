@@ -90,21 +90,22 @@ public class LocadoraController extends HttpServlet{
         
         Locadora locadora = new Locadora(nome, email, senha, cnpj, cidade);
         dao.insert(locadora);
-        response.sendRedirect("views/locadora/lista.jsp");
+        response.sendRedirect("lista");
     }
     
     private void atualize(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        Integer id = Integer.parseInt(request.getParameter("id"))
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
         Integer cnpj = Integer.parseInt(request.getParameter("cnpj"));
         String cidade = request.getParameter("cidade");
         
-        Locadora locadora = new Locadora(nome, email, senha, cnpj, cidade);
+        Locadora locadora = new Locadora(id, nome, email, senha, cnpj, cidade);
         dao.update(locadora);
-        response.sendRedirect("views/locadora/lista.jsp");
+        response.sendRedirect("lista");
     }
     
     private void remove(HttpServletRequest request, HttpServletResponse response)
@@ -113,6 +114,6 @@ public class LocadoraController extends HttpServlet{
 
         Locadora locadora = new Locadora(id);
         dao.delete(locadora);
-        response.sendRedirect("views/locadora/lista.jsp");
+        response.sendRedirect("lista");
     }
 }

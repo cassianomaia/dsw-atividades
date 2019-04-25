@@ -52,8 +52,8 @@
                 <tr>
                     <th>Senha: </th>
                     <td>
-                        <input type="number" name="senha" size="50" required
-                               min="1500" value="<c:out value='${locadora.senha}' />"
+                        <input type="text" name="senha" size="50" required
+                               value="<c:out value='${locadora.senha}' />"
                                />
                     </td>
                 </tr>

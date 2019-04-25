@@ -23,7 +23,7 @@ public class LocadoraDAO extends modelDAO {
         
     public void insert(Locadora locadora) {
 
-        String sql = "INSERT INTO Locadora (nome, email, senha, cnpj, cidade) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO Locadora (nome, email, senha, cnpj, cidade) VALUES (?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();

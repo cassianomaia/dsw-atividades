@@ -33,19 +33,7 @@ public class LocadoraController extends HttpServlet{
         try {
             switch (action) {
                 case "/cadastro":
-                    apresentaFormCadastro(request, response);
-                    break;
-                case "/insercao":
-                    insere(request, response);
-                    break;
-                case "/remocao":
-                    remove(request, response);
-                    break;
-                case "/edicao":
-                    apresentaFormEdicao(request, response);
-                    break;
-                case "/atualizacao":
-                    atualize(request, response);
+                    lista(request, response);
                     break;
                 default:
                     lista(request, response);
@@ -63,18 +51,4 @@ public class LocadoraController extends HttpServlet{
         RequestDispatcher dispatcher = request.getRequestDispatcher("views/locadora/lista.jsp");
         dispatcher.forward(request, response);
     }
-
-    private void insere(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        String titulo = request.getParameter("titulo");
-        String autor = request.getParameter("autor");
-        Integer ano = Integer.parseInt(request.getParameter("ano"));
-        Float preco = Float.parseFloat(request.getParameter("preco"));
-
-        Livro livro = new Livro(titulo, autor, ano, preco);
-        dao.insert(livro);
-        response.sendRedirect("lista");
-    }
-
 }

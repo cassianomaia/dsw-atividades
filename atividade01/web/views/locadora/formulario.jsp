@@ -6,9 +6,9 @@
 <center>
     <h1>Gerenciamento de Locadoras</h1>
     <h2>
-        <a href="new">Adicionar nova Locadora</a>
+        <a href="/locadora/cadastro">Adicionar nova Locadora</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="lista">Lista de Locadoras</a>
+        <a href="/locadora/lista">Lista de Locadoras</a>
 
     </h2>
 </center>

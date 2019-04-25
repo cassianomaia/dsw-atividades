@@ -6,9 +6,9 @@
 <center>
     <h1>Gerenciamento de Locadoras</h1>
     <h2>
-        <a href="cadastro">Adicionar nova Locadora</a>
+        <a href="/locadora/cadastro">Adicionar nova Locadora</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="lista">Lista de Locadoras</a>
+        <a href="/locadora/lista">Lista de Locadoras</a>
 
     </h2>
 </center>
@@ -19,26 +19,25 @@
             <th>ID</th>
             <th>Nome</th>
             <th>Email</th>
-            <th>Senha</th>
-            <th>Telefone</th>
-            <th>Sexo</th>
-            <th>CPF</th>
-            <th>Ativo</th>
+            <th>CNPJ</th>
+            <th>Cidade</th>
+            <th>Ações</th>
         </tr>
-        <c:forEach var="usuario" items="${requestScope.listaUsuario}">
+        <c:forEach var="locadora" items="${requestScope.listaLocadoras}">
             <tr>
-                <td><c:out value="${usuario.id}" /></td>
-                <td><c:out value="${usuario.nome}" /></td>
-                <td><c:out value="${usuario.email}" /></td>
-                <td><c:out value="${usuario.senha}" /></td>
-                <td><c:out value="${usuario.telefone}" /></td>
-                <td><c:out value="${usuario.sexo}" /></td>
-                <td><c:out value="${usuario.cpf}" /></td>
-                <td><c:out value="${usuario.ativo}" /></td>
+
+
+                <td><c:out value="${locadora.id}" /></td>
+                <td><c:out value="${locadora.nome}" /></td>
+                <td><c:out value="${locadora.email}" /></td>
+                <td><c:out value="${locadora.cnpj}" /></td>
+                <td><c:out value="${locadora.cidade}" /></td>
+
+
                 <td>
-                    <a href="edicao?id=<c:out value='${usuario.id}' />">Edição</a>
+                    <a href="locaodara/edicao?id=<c:out value='${locadora.id}' />">Edição</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="remocao?id=<c:out value='${usuario.id}' />"
+                    <a href="locadora/remocao?id=<c:out value='${locadora.id}' />"
                        onclick="return confirm('Tem certeza de que deseja excluir este item?');">
                         Remoção
                     </a>

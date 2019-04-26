@@ -29,8 +29,8 @@ public class UsuarioController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
-        String action = request.getServletPath();
-
+        String action = request.getRequestURI();
+        action = action.split("/")[action.split("/").length - 1];
         try {
             switch (action) {
                 case "cadastro":
@@ -86,12 +86,12 @@ public class UsuarioController extends HttpServlet {
         String email = request.getParameter("email");
         String cpf = request.getParameter("cpf");
         String nome = request.getParameter("nome");
-        Integer telefone = Integer.parseInt(request.getParameter("telefone"));
+        String telefone = request.getParameter("telefone");
         String senha = request.getParameter("senha");
         String sexo = request.getParameter("sexo");
-        boolean ativo = Boolean.parseBoolean(request.getParameter("ativo"));
+        int ativo = 1;
 
-        Usuario usuario = new Usuario(email, cpf, nome, telefone, senha, sexo, ativo);
+        Usuario usuario = new Usuario(-1, email, cpf, nome, telefone, senha, sexo, ativo);
         dao.insert(usuario);
         response.sendRedirect("lista");
     }
@@ -103,10 +103,10 @@ public class UsuarioController extends HttpServlet {
         String email = request.getParameter("email");
         String cpf = request.getParameter("cpf");
         String nome = request.getParameter("nome");
-        Integer telefone = Integer.parseInt(request.getParameter("telefone"));
+        String telefone = request.getParameter("telefone");
         String senha = request.getParameter("senha");
         String sexo = request.getParameter("sexo");
-        boolean ativo = Boolean.parseBoolean(request.getParameter("ativo"));
+        int ativo = 1;
 
         Usuario usuario = new Usuario(id, email, cpf, nome, telefone, senha, sexo, ativo);
         dao.update(usuario);

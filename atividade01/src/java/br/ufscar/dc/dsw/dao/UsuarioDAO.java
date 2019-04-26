@@ -21,20 +21,21 @@ public class UsuarioDAO extends GenericDAO {
 
     public void insert(Usuario usuario) {
 
-        String sql = "INSERT INTO Usuario (email, cpf, nome, telefone, senha, sexo, ativo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Usuario (email, cpf, nome, telefone, senha, data_nascimento, sexo, ativo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
-            PreparedStatement statement = conn.prepareStatement(sql);;
+            PreparedStatement statement = conn.prepareStatement(sql);
 
             statement = conn.prepareStatement(sql);
             statement.setString(1, usuario.getEmail());
             statement.setString(2, usuario.getCpf());
             statement.setString(3, usuario.getNome());
-            statement.setInt(4, usuario.getTelefone());
+            statement.setString(4, usuario.getTelefone());
             statement.setString(5, usuario.getSenha());
-            statement.setString(6, usuario.getSexo());
-            statement.setBoolean(7, usuario.getAtivo());
+            statement.setString(6, usuario.getDataNasc());
+            statement.setString(7, usuario.getSexo());
+            statement.setInt(8, usuario.getAtivo());
             statement.executeUpdate();
 
             statement.close();
@@ -61,12 +62,13 @@ public class UsuarioDAO extends GenericDAO {
                 String email = resultSet.getString("email");
                 String cpf = resultSet.getString("cpf");
                 String nome = resultSet.getString("nome");
-                Integer telefone = resultSet.getInt("telefone");
+                String telefone = resultSet.getString("telefone");
                 String senha = resultSet.getString("senha");
+                String data_nascimento = resultSet.getString("data_nascimento");
                 String sexo = resultSet.getString("sexo");
-                boolean ativo = resultSet.getBoolean("ativo");
+                int ativo = resultSet.getInt("ativo");
 
-                Usuario usuario = new Usuario(id, email, cpf, nome, telefone, senha, sexo, ativo);
+                Usuario usuario = new Usuario(id, email, cpf, nome, telefone, senha, data_nascimento, sexo, ativo);
                 listausuarios.add(usuario);
             }
 
@@ -97,7 +99,7 @@ public class UsuarioDAO extends GenericDAO {
     }
 
     public void update(Usuario usuario) {
-        String sql = "UPDATE Usuario SET email = ?, cpf = ?, nome = ?, telefone = ?, senha = ?, sexo = ?, ativo = ?";
+        String sql = "UPDATE Usuario SET email = ?, cpf = ?, nome = ?, telefone = ?, senha = ?, data_nascimento = ?, sexo = ?, ativo = ?";
         sql += " WHERE id = ?";
 
         try {
@@ -107,10 +109,11 @@ public class UsuarioDAO extends GenericDAO {
             statement.setString(1, usuario.getEmail());
             statement.setString(2, usuario.getCpf());
             statement.setString(3, usuario.getNome());
-            statement.setInt(4, usuario.getTelefone());
+            statement.setString(4, usuario.getTelefone());
             statement.setString(5, usuario.getSenha());
-            statement.setString(6, usuario.getSexo());
-            statement.setBoolean(7, usuario.getAtivo());
+            statement.setString(6, usuario.getDataNasc());
+            statement.setString(7, usuario.getSexo());
+            statement.setInt(8, usuario.getAtivo());
             statement.executeUpdate();
 
             statement.close();
@@ -134,12 +137,13 @@ public class UsuarioDAO extends GenericDAO {
                 String email = resultSet.getString("email");
                 String cpf = resultSet.getString("cpf");
                 String nome = resultSet.getString("nome");
-                Integer telefone = resultSet.getInt("telefone");
+                String telefone = resultSet.getString("telefone");
                 String senha = resultSet.getString("senha");
+                String data_nascimento = resultSet.getString("data_nascimento");
                 String sexo = resultSet.getString("sexo");
-                boolean ativo = resultSet.getBoolean("ativo");
+                int ativo = resultSet.getInt("ativo");
 
-                usuario = new Usuario(email, cpf, nome, telefone, senha, sexo, ativo);
+                usuario = new Usuario(email, cpf, nome, telefone, senha, data_nascimento, sexo, ativo);
             }
 
             resultSet.close();

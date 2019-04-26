@@ -6,14 +6,17 @@ drop table Usuario;
 create table Usuario (
 id integer not null generated always as identity (start with 1, increment by 1),
 email varchar(50) not null,
-cpf varchar(50) not null,
+cpf varchar(14) not null,
 nome varchar(100) not null,
-telefone integer not null,
+telefone varchar(14) not null,
 senha varchar(100) not null,
-sexo varchar(1) not null,
+data_nascimento varchar(50) not null,
+sexo varchar(50) not null,
 ativo smallint not null,
 CONSTRAINT Cliente_PK PRIMARY KEY (id)
 );
+
+select * from Usuario;
 
 -- Tabela TipoUsuario
 drop table TipoUsuario;

@@ -25,7 +25,7 @@
             <th>CPF</th>
             <th>Ativo</th>
         </tr>
-        <c:forEach var="usuario" items="${requestScope.listaUsuarios}">
+        <c:forEach var="usuario" items="${requestScope.listaUsuario}">
             <tr>
                 <td><c:out value="${usuario.id}" /></td>
                 <td><c:out value="${usuario.nome}" /></td>

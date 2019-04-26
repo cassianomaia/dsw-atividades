@@ -66,7 +66,7 @@
                 <tr>
                     <th>Email: </th>
                     <td>
-                        <input type="text" name="email" size="50" required
+                        <input type="email" name="email" size="50" required
                                value="<c:out value='${usuario.email}' />"
                                />
                     </td>
@@ -86,6 +86,17 @@
                                value="<c:out value='${usuario.telefone}'/>"/>
                     </td>
                 </tr>
+
+                <tr>
+                    <th>Data de nascimento: </th>
+                    <td>
+                        <input type="date" name="data_nascimento"
+                               value="<c:out value='${usuario.data_nascimento}' />"
+                               />
+                    </td>
+
+                </tr>
+
                 <tr>
                     <th>Sexo: </th>
                     <td>

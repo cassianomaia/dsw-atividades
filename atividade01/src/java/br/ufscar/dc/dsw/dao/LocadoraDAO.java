@@ -1,4 +1,3 @@
-
 package br.ufscar.dc.dsw.dao;
 
 import br.ufscar.dc.dsw.model.Locadora;
@@ -10,9 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class LocadoraDAO extends modelDAO {
-    
+
     public LocadoraDAO() {
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
@@ -20,20 +18,20 @@ public class LocadoraDAO extends modelDAO {
             throw new RuntimeException(e);
         }
     }
-        
+
     public void insert(Locadora locadora) {
 
         String sql = "INSERT INTO Locadora (nome, email, senha, cnpj, cidade) VALUES (?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
-            PreparedStatement statement = conn.prepareStatement(sql);;
+            PreparedStatement statement = conn.prepareStatement(sql);
 
             statement = conn.prepareStatement(sql);
             statement.setString(1, locadora.getNome());
             statement.setString(2, locadora.getEmail());
             statement.setString(3, locadora.getSenha());
-            statement.setInt(4, locadora.getCnpj());
+            statement.setString(4, locadora.getCnpj());
             statement.setString(5, locadora.getCidade());
             statement.executeUpdate();
 
@@ -43,7 +41,7 @@ public class LocadoraDAO extends modelDAO {
             throw new RuntimeException(e);
         }
     }
-    
+
     public List<Locadora> getAll() {
 
         List<Locadora> listalocadoras = new ArrayList<>();
@@ -60,7 +58,7 @@ public class LocadoraDAO extends modelDAO {
                 String nome = resultSet.getString("nome");
                 String email = resultSet.getString("email");
                 String senha = resultSet.getString("senha");
-                int cnpj = resultSet.getInt("cnpj");
+                String cnpj = resultSet.getString("cnpj");
                 String cidade = resultSet.getString("cidade");
 
                 Locadora locadora = new Locadora(id, nome, email, senha, cnpj, cidade);
@@ -75,7 +73,7 @@ public class LocadoraDAO extends modelDAO {
         }
         return listalocadoras;
     }
-    
+
     public void delete(Locadora locadora) {
         String sql = "DELETE FROM Locadora where id = ?";
 
@@ -92,7 +90,7 @@ public class LocadoraDAO extends modelDAO {
             throw new RuntimeException(e);
         }
     }
-    
+
     public void update(Locadora locadora) {
         String sql = "UPDATE Locadora SET nome = ?, email = ?, senha = ?, cnpj = ?, cidade = ?";
         sql += " WHERE id = ?";
@@ -104,7 +102,7 @@ public class LocadoraDAO extends modelDAO {
             statement.setString(1, locadora.getNome());
             statement.setString(2, locadora.getEmail());
             statement.setString(3, locadora.getSenha());
-            statement.setInt(4, locadora.getCnpj());
+            statement.setString(4, locadora.getCnpj());
             statement.setString(5, locadora.getCidade());
             statement.setInt(6, locadora.getId());
             statement.executeUpdate();
@@ -115,7 +113,7 @@ public class LocadoraDAO extends modelDAO {
             throw new RuntimeException(e);
         }
     }
-    
+
     public Locadora get(int id) {
         Locadora locadora = null;
         String sql = "SELECT * FROM Locadora WHERE id = ?";
@@ -123,14 +121,14 @@ public class LocadoraDAO extends modelDAO {
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-            
+
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 String nome = resultSet.getString("nome");
                 String email = resultSet.getString("email");
                 String senha = resultSet.getString("senha");
-                int cnpj = resultSet.getInt("cnpj");
+                String cnpj = resultSet.getString("cnpj");
                 String cidade = resultSet.getString("cidade");
 
                 locadora = new Locadora(id, nome, email, senha, cnpj, cidade);

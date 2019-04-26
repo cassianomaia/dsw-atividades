@@ -8,6 +8,7 @@ public class Usuario {
     private String senha;
     private String telefone;
     private String sexo;
+    private String data_nascimento;
     private String cpf;
     private int ativo;
 
@@ -15,18 +16,19 @@ public class Usuario {
         this.id = id;
     }
 
-    public Usuario(String email, String cpf, String nome, String telefone, String senha, String sexo, int ativo) {
+    public Usuario(String email, String cpf, String nome, String telefone, String senha, String data_nascimento, String sexo, int ativo) {
         this.email = email;
         this.cpf = cpf;
         this.nome = nome;
         this.telefone = telefone;
         this.senha = senha;
+        this.data_nascimento = data_nascimento;
         this.sexo = sexo;
         this.ativo = ativo;
     }
 
-    public Usuario(Integer id, String email, String cpf, String nome, String telefone, String senha, String sexo, int ativo) {
-        this(email, cpf, nome, telefone, senha, sexo, ativo);
+    public Usuario(Integer id, String email, String cpf, String nome, String telefone, String senha, String data_nascimento, String sexo, int ativo) {
+        this(email, cpf, nome, telefone, senha, data_nascimento, sexo, ativo);
         this.id = id;
     }
 
@@ -53,6 +55,10 @@ public class Usuario {
 
     public String getSenha() {
         return senha;
+    }
+
+    public String getDataNasc() {
+        return data_nascimento;
     }
 
     public String getSexo() {
@@ -86,6 +92,10 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public void setDataNasc(String data_nascimento) {
+        this.data_nascimento = data_nascimento;
     }
 
     public void setSexo(String sexo) {

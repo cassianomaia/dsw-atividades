@@ -21,7 +21,7 @@ public class UsuarioDAO extends modelDAO {
 
     public void insert(Usuario usuario) {
 
-        String sql = "INSERT INTO Usuario (email, cpf, nome, telefone, senha, sexo, ativo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Usuario (email, cpf, nome, telefone, senha, data_nascimento, sexo, ativo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
@@ -33,8 +33,9 @@ public class UsuarioDAO extends modelDAO {
             statement.setString(3, usuario.getNome());
             statement.setString(4, usuario.getTelefone());
             statement.setString(5, usuario.getSenha());
-            statement.setString(6, usuario.getSexo());
-            statement.setInt(7, usuario.getAtivo());
+            statement.setString(6, usuario.getDataNasc());
+            statement.setString(7, usuario.getSexo());
+            statement.setInt(8, usuario.getAtivo());
             statement.executeUpdate();
 
             statement.close();
@@ -63,10 +64,11 @@ public class UsuarioDAO extends modelDAO {
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
                 String senha = resultSet.getString("senha");
+                String data_nascimento = resultSet.getString("data_nascimento");
                 String sexo = resultSet.getString("sexo");
                 int ativo = resultSet.getInt("ativo");
 
-                Usuario usuario = new Usuario(id, email, cpf, nome, telefone, senha, sexo, ativo);
+                Usuario usuario = new Usuario(id, email, cpf, nome, telefone, senha, data_nascimento, sexo, ativo);
                 listausuarios.add(usuario);
             }
 
@@ -97,7 +99,7 @@ public class UsuarioDAO extends modelDAO {
     }
 
     public void update(Usuario usuario) {
-        String sql = "UPDATE Usuario SET email = ?, cpf = ?, nome = ?, telefone = ?, senha = ?, sexo = ?, ativo = ?";
+        String sql = "UPDATE Usuario SET email = ?, cpf = ?, nome = ?, telefone = ?, senha = ?, data_nascimento = ?, sexo = ?, ativo = ?";
         sql += " WHERE id = ?";
 
         try {
@@ -109,8 +111,9 @@ public class UsuarioDAO extends modelDAO {
             statement.setString(3, usuario.getNome());
             statement.setString(4, usuario.getTelefone());
             statement.setString(5, usuario.getSenha());
-            statement.setString(6, usuario.getSexo());
-            statement.setInt(7, usuario.getAtivo());
+            statement.setString(6, usuario.getDataNasc());
+            statement.setString(7, usuario.getSexo());
+            statement.setInt(8, usuario.getAtivo());
             statement.executeUpdate();
 
             statement.close();
@@ -136,10 +139,11 @@ public class UsuarioDAO extends modelDAO {
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
                 String senha = resultSet.getString("senha");
+                String data_nascimento = resultSet.getString("data_nascimento");
                 String sexo = resultSet.getString("sexo");
                 int ativo = resultSet.getInt("ativo");
 
-                usuario = new Usuario(email, cpf, nome, telefone, senha, sexo, ativo);
+                usuario = new Usuario(email, cpf, nome, telefone, senha, data_nascimento, sexo, ativo);
             }
 
             resultSet.close();

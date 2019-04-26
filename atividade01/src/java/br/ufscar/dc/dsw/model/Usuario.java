@@ -6,16 +6,16 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private Integer telefone;
+    private String telefone;
     private String sexo;
     private String cpf;
-    private boolean ativo;
+    private int ativo;
 
     public Usuario(Integer id) {
         this.id = id;
     }
 
-    public Usuario(String email, String cpf, String nome, Integer telefone, String senha, String sexo, boolean ativo) {
+    public Usuario(String email, String cpf, String nome, String telefone, String senha, String sexo, int ativo) {
         this.email = email;
         this.cpf = cpf;
         this.nome = nome;
@@ -25,7 +25,7 @@ public class Usuario {
         this.ativo = ativo;
     }
 
-    public Usuario(Integer id, String email, String cpf, String nome, Integer telefone, String senha, String sexo, boolean ativo) {
+    public Usuario(Integer id, String email, String cpf, String nome, String telefone, String senha, String sexo, int ativo) {
         this(email, cpf, nome, telefone, senha, sexo, ativo);
         this.id = id;
     }
@@ -47,7 +47,7 @@ public class Usuario {
         return nome;
     }
 
-    public Integer getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
@@ -59,7 +59,7 @@ public class Usuario {
         return sexo;
     }
 
-    public boolean getAtivo() {
+    public int getAtivo() {
         return ativo;
     }
 
@@ -80,7 +80,7 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -92,7 +92,7 @@ public class Usuario {
         this.sexo = sexo;
     }
 
-    public void setAtivo(boolean ativo) {
+    public void setAtivo(int ativo) {
         this.ativo = ativo;
     }
 

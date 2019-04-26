@@ -25,16 +25,16 @@ public class UsuarioDAO extends modelDAO {
 
         try {
             Connection conn = this.getConnection();
-            PreparedStatement statement = conn.prepareStatement(sql);;
+            PreparedStatement statement = conn.prepareStatement(sql);
 
             statement = conn.prepareStatement(sql);
             statement.setString(1, usuario.getEmail());
             statement.setString(2, usuario.getCpf());
             statement.setString(3, usuario.getNome());
-            statement.setInt(4, usuario.getTelefone());
+            statement.setString(4, usuario.getTelefone());
             statement.setString(5, usuario.getSenha());
             statement.setString(6, usuario.getSexo());
-            statement.setBoolean(7, usuario.getAtivo());
+            statement.setInt(7, usuario.getAtivo());
             statement.executeUpdate();
 
             statement.close();
@@ -61,10 +61,10 @@ public class UsuarioDAO extends modelDAO {
                 String email = resultSet.getString("email");
                 String cpf = resultSet.getString("cpf");
                 String nome = resultSet.getString("nome");
-                Integer telefone = resultSet.getInt("telefone");
+                String telefone = resultSet.getString("telefone");
                 String senha = resultSet.getString("senha");
                 String sexo = resultSet.getString("sexo");
-                boolean ativo = resultSet.getBoolean("ativo");
+                int ativo = resultSet.getInt("ativo");
 
                 Usuario usuario = new Usuario(id, email, cpf, nome, telefone, senha, sexo, ativo);
                 listausuarios.add(usuario);
@@ -107,10 +107,10 @@ public class UsuarioDAO extends modelDAO {
             statement.setString(1, usuario.getEmail());
             statement.setString(2, usuario.getCpf());
             statement.setString(3, usuario.getNome());
-            statement.setInt(4, usuario.getTelefone());
+            statement.setString(4, usuario.getTelefone());
             statement.setString(5, usuario.getSenha());
             statement.setString(6, usuario.getSexo());
-            statement.setBoolean(7, usuario.getAtivo());
+            statement.setInt(7, usuario.getAtivo());
             statement.executeUpdate();
 
             statement.close();
@@ -134,10 +134,10 @@ public class UsuarioDAO extends modelDAO {
                 String email = resultSet.getString("email");
                 String cpf = resultSet.getString("cpf");
                 String nome = resultSet.getString("nome");
-                Integer telefone = resultSet.getInt("telefone");
+                String telefone = resultSet.getString("telefone");
                 String senha = resultSet.getString("senha");
                 String sexo = resultSet.getString("sexo");
-                boolean ativo = resultSet.getBoolean("ativo");
+                int ativo = resultSet.getInt("ativo");
 
                 usuario = new Usuario(email, cpf, nome, telefone, senha, sexo, ativo);
             }

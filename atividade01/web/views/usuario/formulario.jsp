@@ -75,7 +75,7 @@
                     <th>Senha: </th>
                     <td>
                         <input type="password" name="senha"
-                               value="<c:out value='${cliente.senha}' />"
+                               value="<c:out value='${usuario.senha}' />"
                                />
                     </td>
                 </tr>
@@ -83,14 +83,14 @@
                     <th>Telefone: </th>
                     <td>
                         <input type="text" name="telefone" maxlength="13" OnKeyPress="formatar('##-#####-####', this)"
-                               value="<c:out value='${cliente.telefone}'/>"/>
+                               value="<c:out value='${usuario.telefone}'/>"/>
                     </td>
                 </tr>
                 <tr>
                     <th>Sexo: </th>
                     <td>
                         <input type="text" name="sexo"
-                               value="<c:out value='${cliente.sexo}' />"
+                               value="<c:out value='${usuario.sexo}' />"
                                />
                     </td>
 
@@ -102,13 +102,6 @@
                                required value="<c:out value='${usuario.cpf}'/>"/>
                     </td>
                 </tr>
-                <!--                <tr>
-                                    <th>Ativo </th>
-                                    <td>
-                                        <input type="text" name="cpf" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)"
-                                               required value="<c:out value='${usuario.cpf}'/>"/>
-                                    </td>
-                                </tr>                -->
 
                 <tr>
                     <td colspan="2" align="center">

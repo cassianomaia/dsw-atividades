@@ -12,10 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/locadora/*")
-public class LocadoraController extends HttpServlet {
-
+public class LocadoraController extends HttpServlet{
     private LocadoraDAO dao;
-
+       
     @Override
     public void init() {
         dao = new LocadoraDAO();

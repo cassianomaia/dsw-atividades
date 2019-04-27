@@ -9,8 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocadoraDAO extends modelDAO {
 
+public class LocadoraDAO extends GenericDAO {
+    
     public LocadoraDAO() {
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver");

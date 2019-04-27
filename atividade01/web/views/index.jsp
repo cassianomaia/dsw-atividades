@@ -17,5 +17,25 @@
         </div>
 
     </section>
+    
+    <div align="center">
+    <table border="1" cellpadding="5">
+        <caption><h2>Lista de Locadoras</h2></caption>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>CNPJ</th>
+            <th>Cidade</th>
+        </tr>
+        <c:forEach var="locadora" items="${requestScope.listaLocadora}">
+            <tr>
+                <td><c:out value="${locadora.nome}" /></td>
+                <td><c:out value="${locadora.email}" /></td>
+                <td><c:out value="${locadora.cnpj}" /></td>
+                <td><c:out value="${locadora.cidade}" /></td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>

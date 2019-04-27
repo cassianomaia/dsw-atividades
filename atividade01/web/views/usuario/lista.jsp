@@ -9,6 +9,7 @@
         <a href="cadastro">Adicionar novo Usuario</a>
         &nbsp;&nbsp;&nbsp;
         <a href="lista">Lista de Usuarios</a>
+        <a href="/atividade01/"> Inicio</a>
 
     </h2>
 </center>

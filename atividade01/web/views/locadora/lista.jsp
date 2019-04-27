@@ -9,6 +9,7 @@
         <a href="cadastro">Adicionar nova Locadora</a>
         &nbsp;&nbsp;&nbsp;
         <a href="lista">Lista de Locadoras</a>
+        <a href="/atividade01/"> Inicio</a>
 
     </h2>
 </center>

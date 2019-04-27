@@ -88,10 +88,11 @@ public class UsuarioController extends HttpServlet {
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
         String senha = request.getParameter("senha");
+        String data_nascimento = request.getParameter("data_nascimento");
         String sexo = request.getParameter("sexo");
         int ativo = 1;
 
-        Usuario usuario = new Usuario(-1, email, cpf, nome, telefone, senha, sexo, ativo);
+        Usuario usuario = new Usuario(-1, email, cpf, nome, telefone, senha, data_nascimento, sexo, ativo);
         dao.insert(usuario);
         response.sendRedirect("lista");
     }
@@ -105,10 +106,11 @@ public class UsuarioController extends HttpServlet {
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
         String senha = request.getParameter("senha");
+        String data_nascimento = request.getParameter("data_nascimento");
         String sexo = request.getParameter("sexo");
         int ativo = 1;
 
-        Usuario usuario = new Usuario(id, email, cpf, nome, telefone, senha, sexo, ativo);
+        Usuario usuario = new Usuario(id, email, cpf, nome, telefone, senha, data_nascimento, sexo, ativo);
         dao.update(usuario);
         response.sendRedirect("lista");
     }

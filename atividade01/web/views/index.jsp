@@ -4,13 +4,18 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <jsp:include page="helpers/header.jsp" />
+<style>
+    <%@include file="css/estilo.css"%>
+</style>
+
 <body>
     <section class="OpcoesIndex">
         <div class="container-sessoes-index">
             <h2 class="titulo-sessoes-index">Bem-vindo</h2>
-            <ul>
-                <li><a href="/atividade01/usuario/"> Usuários </a></li>
-                <li> <a href="/atividade01/locadora/"> Locadora </a></li>
+            <ul id="opcoes">
+                <li class="itemestaticomenu">Gerenciamento</li>
+                <li><a href="/atividade01/usuario/" class = "button"> Usuários </a></li>
+                <li> <a href="/atividade01/locadora/" class = "button"> Locadora </a></li>
             </ul>
 
         </div>

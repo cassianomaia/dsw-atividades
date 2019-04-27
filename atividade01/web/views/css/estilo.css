@@ -1,0 +1,103 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : Apr 26, 2019, 9:34:18 PM
+    Author     : rodrigo
+*/
+
+table, th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.titulo-sessoes-index{
+    text-align: center;
+}
+
+.header {
+    background-color: #082767;
+    padding: 30px;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+}
+
+body {
+    background-image: url("imagem.jpg");
+    background-repeat: no-repeat;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+.itemestaticomenu{
+    background-color: #333333;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.button, .dropbtn {
+    background-color: #424141;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+.button:hover, .dropdown-content a:hover {
+    background-color: white;
+    color: #424141;
+}
+
+* {
+    box-sizing: border-box;
+}

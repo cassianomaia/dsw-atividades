@@ -19,12 +19,12 @@ public class LocadoraController extends HttpServlet{
     public void init() {
         dao = new LocadoraDAO();
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
@@ -63,7 +63,7 @@ public class LocadoraController extends HttpServlet{
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/locadora/lista.jsp");
         dispatcher.forward(request, response);
     }
-    
+
     private void apresentaFormCadastro(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/locadora/formulario.jsp");
@@ -78,7 +78,7 @@ public class LocadoraController extends HttpServlet{
         request.setAttribute("locadora", locadora);
         dispatcher.forward(request, response);
     }
-    
+
     private void insere(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -87,12 +87,12 @@ public class LocadoraController extends HttpServlet{
         String senha = request.getParameter("senha");
         String cnpj = request.getParameter("cnpj");
         String cidade = request.getParameter("cidade");
-        
-        Locadora locadora = new Locadora(nome, email, senha, cnpj, cidade);
+
+        Locadora locadora = new Locadora(-1, nome, email, senha, cnpj, cidade);
         dao.insert(locadora);
         response.sendRedirect("lista");
     }
-    
+
     private void atualize(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -102,12 +102,12 @@ public class LocadoraController extends HttpServlet{
         String senha = request.getParameter("senha");
         String cnpj = request.getParameter("cnpj");
         String cidade = request.getParameter("cidade");
-        
+
         Locadora locadora = new Locadora(id, nome, email, senha, cnpj, cidade);
         dao.update(locadora);
         response.sendRedirect("lista");
     }
-    
+
     private void remove(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));

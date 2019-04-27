@@ -2,6 +2,12 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../helpers/header.jsp" />
+
+<style>
+    <%@include file="../css/estilo.css"%>
+</style>
+
+
 <script>
     function formatar(mascara, documento) {
         var i = documento.value.length;
@@ -26,13 +32,16 @@
 </script>
 <body>
 <center>
-    <h1>Gerenciamento de Usuarios</h1>
-    <h2>
-        <a href="cadastro">Adicionar novo Usuario</a>
-        &nbsp;&nbsp;&nbsp;
-        <a href="lista">Lista de Usuarios</a>
-
-    </h2>
+    <section class="OpcoesIndex">
+        <div class="container-sessoes-index">
+            <h2 class="titulo-sessoes-index">Gerenciamento de Usuários</h2>
+            <ul>
+                <li class="itemestaticomenu">Menu usuário</li>
+                <li><a class="button" href="cadastro">Adicionar novo Usuário</a></li>
+                <li><a class="button" href="lista">Lista de Usuários</a></li>
+            </ul>
+        </div>
+    </section>
 </center>
 <div align="center">
     <c:if test="${usuario != null}">
@@ -80,23 +89,20 @@
                     </td>
                 </tr>
                 <tr>
+                    <th>Data nascimento: </th>
+                    <td>
+                        <input type="date" name="data_nascimento"
+                               value="<c:out value='${usuario.data_nascimento}' />"
+                               />
+                    </td>
+                </tr>
+                <tr>
                     <th>Telefone: </th>
                     <td>
                         <input type="text" name="telefone" maxlength="13" OnKeyPress="formatar('##-#####-####', this)"
                                value="<c:out value='${usuario.telefone}'/>"/>
                     </td>
                 </tr>
-
-                <tr>
-                    <th>Data de nascimento: </th>
-                    <td>
-                        <input type="date" name="data_nascimento"
-                               value="<c:out value='${usuario.data_nascimento}' />"
-                               />
-                    </td>
-
-                </tr>
-
                 <tr>
                     <th>Sexo: </th>
                     <td>

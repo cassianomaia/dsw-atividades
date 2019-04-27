@@ -92,7 +92,7 @@ public class UsuarioController extends HttpServlet {
         String sexo = request.getParameter("sexo");
         int ativo = 1;
 
-        Usuario usuario = new Usuario( email, cpf, nome, telefone, senha, data_nascimento, sexo, ativo);
+        Usuario usuario = new Usuario(-1, email, cpf, nome, telefone, senha, data_nascimento, sexo, ativo);
         dao.insert(usuario);
         response.sendRedirect("lista");
     }

@@ -42,8 +42,6 @@ public class MainController extends HttpServlet {
     
     private void apresentaIndex(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Locadora> listaLocadora = locadoradao.getAll();
-        request.setAttribute("listaLocadora", listaLocadora);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/index.jsp");
         dispatcher.forward(request, response);
     }

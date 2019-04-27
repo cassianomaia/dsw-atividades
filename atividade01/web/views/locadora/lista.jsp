@@ -16,6 +16,13 @@
 <div align="center">
     <table border="1" cellpadding="5">
         <caption><h2>Lista de Locadoras</h2></caption>
+        
+         <form action="busca" method="post">
+            <label for="cidade">Pesquisar por cidade:</label>
+            <input type="search" id="cidade" name="cidade">
+            <button type="submit">OK</button>
+        </form>
+        
         <tr>
             <th>ID</th>
             <th>Nome</th>

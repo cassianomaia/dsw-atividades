@@ -47,6 +47,9 @@ public class LocadoraController extends HttpServlet{
                 case "atualizacao":
                     atualize(request, response);
                     break;
+                case "busca":
+                    busca(request, response);
+                    break;
                 default:
                     lista(request, response);
                     break;
@@ -59,6 +62,16 @@ public class LocadoraController extends HttpServlet{
     private void lista(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Locadora> listaLocadora = dao.getAll();
+        request.setAttribute("listaLocadoras", listaLocadora);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/locadora/lista.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+    private void busca(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        String cidade = request.getParameter("cidade");
+        List<Locadora> listaLocadora = dao.getCidade(cidade);
         request.setAttribute("listaLocadoras", listaLocadora);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/locadora/lista.jsp");
         dispatcher.forward(request, response);

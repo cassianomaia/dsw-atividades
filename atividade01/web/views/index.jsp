@@ -11,6 +11,7 @@
             <ul>
                 <li><a href="/atividade01/usuario/"> Usuários </a></li>
                 <li> <a href="/atividade01/locadora/"> Locadora </a></li>
+                <li> <a href="/atividade01/locacao/"> Locacao </a></li>
             </ul>
 
         </div>

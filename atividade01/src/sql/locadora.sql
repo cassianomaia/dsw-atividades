@@ -16,8 +16,6 @@ ativo smallint not null,
 CONSTRAINT Cliente_PK PRIMARY KEY (id)
 );
 
-select * from Usuario;
-
 -- Tabela TipoUsuario
 drop table TipoUsuario;
 
@@ -45,8 +43,12 @@ CONSTRAINT Usuario_PK PRIMARY KEY (id)
 drop table Locacao;
 
 create table Locacao (
+id integer not null generated always as identity (start with 1, increment by 1),
 cpf varchar(50) not null,
 cnpj varchar(100) not null,
-data date not null,
-CONSTRAINT Locacao_PK PRIMARY KEY (cpf, cnpj)
+data varchar(50) not null,
+hora varchar(10) not null,
+CONSTRAINT Locacao_PK PRIMARY KEY (id)
 );
+
+select * from Locacao;

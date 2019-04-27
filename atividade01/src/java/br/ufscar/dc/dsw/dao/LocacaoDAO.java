@@ -7,7 +7,6 @@ package br.ufscar.dc.dsw.dao;
 
 import br.ufscar.dc.dsw.model.Locacao;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +30,7 @@ public class LocacaoDAO extends GenericDAO {
     
     public void insert(Locacao locacao) {
 
-        String sql = "INSERT INTO Locacao (cpf, cnpj, data) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Locacao (cpf, cnpj, data, hora) VALUES (?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
@@ -40,7 +39,8 @@ public class LocacaoDAO extends GenericDAO {
             statement = conn.prepareStatement(sql);
             statement.setString(1, locacao.getCpf());
             statement.setString(2, locacao.getCnpj());
-            statement.setDate(3, locacao.getData());
+            statement.setString(3, locacao.getData());
+            statement.setString(4, locacao.getHora());
             statement.executeUpdate();
 
             statement.close();
@@ -62,11 +62,13 @@ public class LocacaoDAO extends GenericDAO {
 
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
+                int id = resultSet.getInt("id");
                 String cpf = resultSet.getString("cpf");
                 String cnpj = resultSet.getString("cnpj");
-                Date data = resultSet.getDate("data");
+                String data = resultSet.getString("data");
+                String hora = resultSet.getString("hora");
 
-                Locacao locacao = new Locacao(cpf, cnpj, data);
+                Locacao locacao = new Locacao(id, cpf, cnpj, data, hora);
                 listalocacao.add(locacao);
             }
 
@@ -80,14 +82,13 @@ public class LocacaoDAO extends GenericDAO {
     }
     
     public void delete(Locacao locacao) {
-        String sql = "DELETE FROM Locacao where cpf = ? and cnpj = ?";
+        String sql = "DELETE FROM Locacao where id = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
-            statement.setString(1, locacao.getCpf());
-            statement.setString(2, locacao.getCnpj());
+            statement.setInt(1, locacao.getId());
             statement.executeUpdate();
 
             statement.close();
@@ -97,23 +98,23 @@ public class LocacaoDAO extends GenericDAO {
         }
     }
     
-    public Locacao get(String cpf, String cnpj) {
+    public Locacao get(Integer id) {
         Locacao locacao = null;
-        String sql = "SELECT * FROM Locadora WHERE cpf = ? and cnpj = ?";
+        String sql = "SELECT * FROM Locadora WHERE id = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
             
-            statement.setString(1, cpf);
-            statement.setString(2, cnpj);
+            statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 String cpf_recebido = resultSet.getString("cpf");
                 String cnpj_recebido = resultSet.getString("cnpj");
-                Date data = resultSet.getDate("data");
+                String data = resultSet.getString("data");
+                String hora = resultSet.getString("hora");
 
-                locacao = new Locacao(cpf_recebido, cnpj_recebido, data);
+                locacao = new Locacao(cpf_recebido, cnpj_recebido, data, hora);
             }
 
             resultSet.close();
@@ -123,5 +124,27 @@ public class LocacaoDAO extends GenericDAO {
             throw new RuntimeException(e);
         }
         return locacao;
+    }
+    
+        public void update(Locacao locacao) {
+        String sql = "UPDATE Locacao SET cpf = ?, cnpj = ?, data = ?, hora = ?";
+        sql += " WHERE id = ?";
+
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+
+            statement.setString(1, locacao.getCpf());
+            statement.setString(2, locacao.getCnpj());
+            statement.setString(3, locacao.getData());
+            statement.setString(4, locacao.getHora());
+            statement.setInt(5, locacao.getId());
+            statement.executeUpdate();
+
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

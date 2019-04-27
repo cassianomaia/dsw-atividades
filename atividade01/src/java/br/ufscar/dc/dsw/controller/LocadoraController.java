@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/locadora/*")
 public class LocadoraController extends HttpServlet{
-       private LocadoraDAO dao;
+    private LocadoraDAO dao;
        
     @Override
     public void init() {
@@ -85,7 +85,7 @@ public class LocadoraController extends HttpServlet{
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
-        Integer cnpj = Integer.parseInt(request.getParameter("cnpj"));
+        String cnpj = request.getParameter("cnpj");
         String cidade = request.getParameter("cidade");
         
         Locadora locadora = new Locadora(nome, email, senha, cnpj, cidade);
@@ -100,7 +100,7 @@ public class LocadoraController extends HttpServlet{
         String nome = request.getParameter("nome");
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
-        Integer cnpj = Integer.parseInt(request.getParameter("cnpj"));
+        String cnpj = request.getParameter("cnpj");
         String cidade = request.getParameter("cidade");
         
         Locadora locadora = new Locadora(id, nome, email, senha, cnpj, cidade);

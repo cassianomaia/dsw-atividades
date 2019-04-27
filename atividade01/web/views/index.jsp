@@ -1,6 +1,9 @@
 <%--<%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
+<%@page import="br.ufscar.dc.dsw.model.Locadora"%>
+<%@page import="java.util.List"%>
+<%@page import="br.ufscar.dc.dsw.dao.LocadoraDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <jsp:include page="helpers/header.jsp" />

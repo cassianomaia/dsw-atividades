@@ -1,7 +1,9 @@
 package br.ufscar.dc.dsw.controller;
 
 import br.ufscar.dc.dsw.dao.LocacaoDAO;
+import br.ufscar.dc.dsw.dao.UsuarioDAO;
 import br.ufscar.dc.dsw.model.Locacao;
+import br.ufscar.dc.dsw.model.Usuario;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -10,14 +12,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 
 @WebServlet(urlPatterns = "/locacao/*")
 public class LocacaoController extends HttpServlet{
     private LocacaoDAO dao;
+    private UsuarioDAO usuariodao;
     
     @Override
     public void init() {
         dao = new LocacaoDAO();
+        usuariodao = new UsuarioDAO();
     }
     
     @Override
@@ -96,14 +101,48 @@ public class LocacaoController extends HttpServlet{
     private void insere(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
-        String cpf = request.getParameter("cpf");
+        String email = request.getParameter("email");
         String cnpj = request.getParameter("cnpj");
         String data = request.getParameter("data");
         String hora = request.getParameter("hora");
         
-        Locacao locacao = new Locacao(cpf, cnpj, data, hora);
-        dao.insert(locacao);
-        response.sendRedirect("lista");
+        Usuario usuario = usuariodao.getEmail(email);
+        List<Locacao> listaLocacao = dao.getAll();
+        boolean locar = true;
+        
+        
+        if (!listaLocacao.isEmpty()) {
+            for (int i = 0; i < listaLocacao.size(); i++) {
+                                
+                if (listaLocacao.get(i).getCpf().equals(usuario.getCpf())
+                        && listaLocacao.get(i).getData().equals(data)) {
+                                        
+                    int hora_locacao = Integer.parseInt(listaLocacao.get(i).getHora().substring(0, 2));                    
+                    int hora_locacao_atual = Integer.parseInt(hora.substring(0, 2));
+                    
+                    if (hora_locacao_atual >= hora_locacao && hora_locacao_atual <= hora_locacao + 1) {
+                        locar = false;
+                    }
+                } else if (listaLocacao.get(i).getCnpj().equals(cnpj)
+                        && listaLocacao.get(i).getData().equals(data)) {
+                    
+                    int hora_locacao = Integer.parseInt(listaLocacao.get(i).getHora());
+                    int hora_locacao_atual = Integer.parseInt(hora);
+                    if (hora_locacao_atual <= hora_locacao && hora_locacao_atual <= hora_locacao + 1) {
+                        locar = false;
+                    }
+                }
+            }
+        }
+        
+        if (locar == true){
+            Locacao locacao = new Locacao(usuario.getCpf(), cnpj, data, hora);
+            dao.insert(locacao);
+            response.sendRedirect("lista");
+        }else{
+            JOptionPane.showMessageDialog(null, "Não é possível cadastrar uma locação neste horário", "Erro de validação", JOptionPane.ERROR_MESSAGE);
+            response.sendRedirect("lista");
+        }
     }
     
     private void remove(HttpServletRequest request, HttpServletResponse response)

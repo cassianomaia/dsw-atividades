@@ -41,24 +41,21 @@
         <c:if test="${locacao == null}">
             <form action="insercao" method="post">
             </c:if>
+            <input type="hidden" name="email" value="<c:out value='<%=request.getUserPrincipal().getName().toString()%>'/>" />
             <table border="1" cellpadding="5">
                 <!--<caption>-->
                 <h2>
-                    <c:if test="${usuario != null}">
+                    <c:if test="${locacao != null}">
                         Edição
+                        <input type="hidden" name="id" value="<c:out value='${locacao.id}'/>" /> 
                     </c:if>
-                    <c:if test="${usuario == null}">
+                    <c:if test="${locacao == null}">
                         Cadastro
                     </c:if>
                 </h2>
+                
                 <!--                </caption>-->
                 <tr>
-                    <th>CPF: </th>
-                    <td>
-                        <input type="text" name="cpf" maxlength="14" OnKeyPress="formatar('###.###.###-##', this)"
-                               required value="<c:out value='${locacao.cpf}'/>"/>
-                    </td>
-                </tr>
                 <tr>
                     <th>CNPJ: </th>
                     <td>

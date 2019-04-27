@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<jsp:include page="helpers/header.jsp" />
+<jsp:include page="../helpers/header.jsp" />
 <body>
     <section class="OpcoesIndex">
         <div class="container-sessoes-index">
@@ -17,7 +17,8 @@
         </div>
 
     </section>
-        <div align="center">
+    
+    <div align="center">
     <table border="1" cellpadding="5">
         <caption><h2>Lista de Locadoras</h2></caption>
         <tr>
@@ -26,7 +27,7 @@
             <th>CNPJ</th>
             <th>Cidade</th>
         </tr>
-        <c:forEach var="locadora" items="${requestScope.listaLocadora}">
+        <c:forEach var="locadora" items="${requestScope.listaLocadoras}">
             <tr>
                 <td><c:out value="${locadora.nome}" /></td>
                 <td><c:out value="${locadora.email}" /></td>

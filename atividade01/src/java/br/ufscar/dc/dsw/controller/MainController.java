@@ -13,7 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/")
 public class MainController extends HttpServlet {
-    
+    private LocadoraDAO locadoradao;
+       
+    @Override
+    public void init() {
+        locadoradao = new LocadoraDAO();
+    }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
@@ -25,7 +30,11 @@ public class MainController extends HttpServlet {
         String action = request.getRequestURI();
         action = action.split("/")[action.split("/").length - 1];
         try {
-            apresentaIndex(request, response);
+            switch(action) {
+                default:
+                    apresentaIndex(request, response);
+                    break;
+            }
         } catch (RuntimeException | IOException e) {
             throw new ServletException(e);
         }
@@ -33,8 +42,7 @@ public class MainController extends HttpServlet {
     
     private void apresentaIndex(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        LocadoraDAO dao = new LocadoraDAO();
-        List<Locadora> listaLocadora = dao.getAll();
+        List<Locadora> listaLocadora = locadoradao.getAll();
         request.setAttribute("listaLocadora", listaLocadora);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/index.jsp");
         dispatcher.forward(request, response);

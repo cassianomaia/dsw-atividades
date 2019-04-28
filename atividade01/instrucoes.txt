@@ -1,0 +1,15 @@
+Para executar o projeto:
+1 - Criar um banco de dados Java DB com os seguintes parametros:
+Nome: DBLocadora
+usuario: root
+senha: root
+
+2 - Executar o script sql de criação de tabelas, que pode ser encontrado em:
+dsw-atividades/atividade01/src/sql/locadora.sql
+
+3 - Executar o arquivo que popula o banco de dados, encontrado em:
+dsw-atividades/atividade01/src/java/br/ufscar/dc/dsw/config/PopulaBanco.java
+
+Notas:
+O grupo não conseguiu implementar o sistema de login, por isso o arquivo AppConfig.java está configurado 
+para permitir o acesso a todos os padrões de URL. (.antMatchers("/**").permitAll())

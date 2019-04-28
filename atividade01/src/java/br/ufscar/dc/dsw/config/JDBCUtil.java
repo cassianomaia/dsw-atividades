@@ -1,3 +1,4 @@
+package br.ufscar.dc.dsw.config;
 
 import javax.sql.DataSource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;

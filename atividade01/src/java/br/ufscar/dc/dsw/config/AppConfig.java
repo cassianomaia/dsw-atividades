@@ -1,3 +1,4 @@
+package br.ufscar.dc.dsw.config;
 
 import javax.sql.DataSource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -23,16 +24,18 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
         builder.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery("select email, senha, ativo"
                         + " from Usuario where email = ?")
-                .authoritiesByUsernameQuery("select email, tipo "
-                        + "from TipoUsuario where email = ?")
+                .authoritiesByUsernameQuery("select email, nome "
+                        + "from Papel where email = ?")
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/**").hasRole("USER")
+                .antMatchers("/locadora/**").permitAll()
+                .antMatchers("/usuario/**").permitAll()
+                .antMatchers("/locacao/**").permitAll()
+                .antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

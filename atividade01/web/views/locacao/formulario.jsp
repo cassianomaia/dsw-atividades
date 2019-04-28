@@ -2,6 +2,11 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../helpers/header.jsp" />
+
+<style>
+    <%@include file="../css/estilo.css"%>
+</style>
+
 <script>
     function formatar(mascara, documento) {
         var i = documento.value.length;
@@ -47,13 +52,13 @@
                 <h2>
                     <c:if test="${locacao != null}">
                         Edição
-                        <input type="hidden" name="id" value="<c:out value='${locacao.id}'/>" /> 
+                        <input type="hidden" name="id" value="<c:out value='${locacao.id}'/>" />
                     </c:if>
                     <c:if test="${locacao == null}">
                         Cadastro
                     </c:if>
                 </h2>
-                
+
                 <!--                </caption>-->
                 <tr>
                 <tr>

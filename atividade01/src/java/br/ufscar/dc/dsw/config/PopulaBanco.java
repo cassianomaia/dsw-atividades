@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import javax.sql.DataSource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-public class CriaUsuarios {
+public class PopulaBanco {
 
     public static void main(String[] args) throws ClassNotFoundException {
 

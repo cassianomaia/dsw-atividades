@@ -1,7 +1,5 @@
 package br.ufscar.dc.dsw.config;
 
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javax.sql.DataSource;
@@ -25,7 +23,6 @@ public class CriaUsuarios {
                     + "values (?,?)";
 
             // Criando Usuario admin com papel ROLE_ADMIN
-            
             PreparedStatement userStatement = conn.prepareStatement(userSql);
             userStatement.setString(1, "admin@admin");
             userStatement.setString(2, encoder.encode("admin"));

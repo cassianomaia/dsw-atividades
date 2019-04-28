@@ -41,7 +41,7 @@
         <c:if test="${locacao == null}">
             <form action="insercao" method="post">
             </c:if>
-            <input type="hidden" name="email" value="<c:out value='<%=request.getUserPrincipal().getName().toString()%>'/>" />
+            <!--<input type="hidden" name="email" value="<c:out value='<%=request.getUserPrincipal().getName().toString()%>'/>" />-->
             <table border="1" cellpadding="5">
                 <!--<caption>-->
                 <h2>
@@ -56,6 +56,12 @@
                 
                 <!--                </caption>-->
                 <tr>
+                    <th>Email: </th>
+                    <td>
+                        <input type="text" name="email" maxlength="18" 
+                               required value="<c:out value='${locacao.email}'/>"/>
+                    </td>
+                </tr>
                 <tr>
                     <th>CNPJ: </th>
                     <td>

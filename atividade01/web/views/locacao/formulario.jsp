@@ -30,15 +30,21 @@
     }
 </script>
 <body>
-<center>
-    <h1>Gerenciamento de Locacoes</h1>
-    <h2>
-        <a href="cadastro">Adicionar nova Locacao</a>
-        &nbsp;&nbsp;&nbsp;
-        <a href="lista">Lista de Locacoes</a>
 
-    </h2>
+<center>
+    <section class="OpcoesIndex">
+        <div class="container-sessoes-index">
+            <h2 class="titulo-sessoes-index">Gerenciamento de Locações</h2>
+            <ul>
+                <li class="itemestaticomenu">Menu locação</li>
+                <li><a class="button" href="/atividade01/">Inicio</a></li>
+                <li><a class="button" href="cadastro">Adicionar nova locação</a></li>
+                <li><a class="button" href="lista">Lista de Locações</a></li>
+            </ul>
+        </div>
+    </section>
 </center>
+
 <div align="center">
     <c:if test="${locacao != null}">
         <form action="atualizacao" method="post">
@@ -63,7 +69,7 @@
                 <tr>
                     <th>Email: </th>
                     <td>
-                        <input type="text" name="email" maxlength="18" 
+                        <input type="text" name="email" maxlength="18"
                                required value="<c:out value='${locacao.email}'/>"/>
                     </td>
                 </tr>

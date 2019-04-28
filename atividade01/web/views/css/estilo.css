@@ -93,6 +93,10 @@ li a:hover {
     transition-duration: 0.4s;
 }
 
+.button{
+
+}
+
 .button:hover, .dropdown-content a:hover {
     background-color: white;
     color: #424141;

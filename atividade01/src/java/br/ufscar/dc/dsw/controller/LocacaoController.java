@@ -112,20 +112,16 @@ public class LocacaoController extends HttpServlet{
         
         
         if (!listaLocacao.isEmpty()) {
-            for (int i = 0; i < listaLocacao.size(); i++) {
-                                
+            for (int i = 0; i < listaLocacao.size(); i++) {           
                 if (listaLocacao.get(i).getCpf().equals(usuario.getCpf())
-                        && listaLocacao.get(i).getData().equals(data)) {
-                                        
+                        && listaLocacao.get(i).getData().equals(data)) {                
                     int hora_locacao = Integer.parseInt(listaLocacao.get(i).getHora().substring(0, 2));                    
                     int hora_locacao_atual = Integer.parseInt(hora.substring(0, 2));
-                    
                     if (hora_locacao_atual >= hora_locacao && hora_locacao_atual <= hora_locacao + 1) {
                         locar = false;
                     }
                 } else if (listaLocacao.get(i).getCnpj().equals(cnpj)
                         && listaLocacao.get(i).getData().equals(data)) {
-                    
                     int hora_locacao = Integer.parseInt(listaLocacao.get(i).getHora());
                     int hora_locacao_atual = Integer.parseInt(hora);
                     if (hora_locacao_atual <= hora_locacao && hora_locacao_atual <= hora_locacao + 1) {
@@ -140,7 +136,7 @@ public class LocacaoController extends HttpServlet{
             dao.insert(locacao);
             response.sendRedirect("lista");
         }else{
-            JOptionPane.showMessageDialog(null, "Não é possível cadastrar uma locação neste horário", "Erro de validação", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Horário já cadastrado.", "Problema!", JOptionPane.ERROR_MESSAGE);
             response.sendRedirect("lista");
         }
     }

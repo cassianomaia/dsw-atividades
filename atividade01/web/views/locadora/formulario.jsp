@@ -2,11 +2,6 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../helpers/header.jsp" />
-
-<style>
-    <%@include file="../css/estilo.css"%>
-</style>
-
 <script>
     function formatar(mascara, documento) {
         var i = documento.value.length;
@@ -32,19 +27,14 @@
 
 <body>
 <center>
-    <section class="OpcoesIndex">
-        <div class="container-sessoes-index">
-            <h2 class="titulo-sessoes-index">Gerenciamento de Locadoras</h2>
-            <ul>
-                <li class="itemestaticomenu">Menu locadora</li>
-                <li><a class="button" href="cadastro">Adicionar nova Locadora</a></li>
-                <li><a class="button" href="lista">Lista de Locadoras</a></li>
-            </ul>
-        </div>
-    </section>
+    <h1>Gerenciamento de Locadoras</h1>
+    <h2>
+        <a href="cadastro">Adicionar nova Locadora</a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="lista">Lista de Locadoras</a>
+
+    </h2>
 </center>
-
-
 <div align="center">
     <c:if test="${locadora != null}">
         <form action="atualizacao" method="post">

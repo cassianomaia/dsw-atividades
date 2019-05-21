@@ -20,7 +20,7 @@
                 <li class="itemestaticomenu">Gerenciamento</li>
                 <li ><a class="button" href="/atividade01/usuario/"> Usuários </a></li>
                 <li> <a class="button" href="/atividade01/locadora/"> Locadora </a></li>
-                <li> <a class="button" href="/atividade01/locacao/"> Locacao </a></li>
+                <li> <a class="button" href="/atividade01/locacao/"> Locação </a></li>
             </ul>
 
         </div>

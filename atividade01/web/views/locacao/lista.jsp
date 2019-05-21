@@ -2,29 +2,20 @@
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="../helpers/header.jsp" />
-
-<style>
-    <%@include file="../css/estilo.css"%>
-</style>
-
 <body>
 <center>
-    <section class="OpcoesIndex">
-        <div class="container-sessoes-index">
-            <h2 class="titulo-sessoes-index">Gerenciamento de Locadoras</h2>
-            <ul>
-                <li class="itemestaticomenu">Menu locação</li>
-                <li><a class="button" href="/atividade01/">Inicio</a></li>
-                <li><a class="button" href="cadastro">Adicionar nova locação</a></li>
-                <li><a class="button" href="lista">Lista de Locações</a></li>
-            </ul>
-        </div>
-    </section>
-</center>
+    <h1>Gerenciamento de Locadoras</h1>
+    <h2>
+        <a href="cadastro">Adicionar nova Locacao</a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="lista">Lista de Locacoes</a>
+        <a href="/atividade01/"> Inicio</a>
 
+    </h2>
+</center>
 <div align="center">
     <table border="1" cellpadding="5">
-        <caption><h2>Lista de Locações</h2></caption>
+        <caption><h2>Lista de Locacoes</h2></caption>
         <tr>
             <th>CPF</th>
             <th>CNPJ</th>

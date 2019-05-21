@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 public class LocadoraDAO extends GenericDAO {
@@ -27,11 +28,12 @@ public class LocadoraDAO extends GenericDAO {
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            
             statement = conn.prepareStatement(sql);
             statement.setString(1, locadora.getNome());
             statement.setString(2, locadora.getEmail());
-            statement.setString(3, locadora.getSenha());
+            statement.setString(3, encoder.encode(locadora.getSenha()));
             statement.setString(4, locadora.getCnpj());
             statement.setString(5, locadora.getCidade());
             statement.executeUpdate();
@@ -131,10 +133,11 @@ public class LocadoraDAO extends GenericDAO {
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            
             statement.setString(1, locadora.getNome());
             statement.setString(2, locadora.getEmail());
-            statement.setString(3, locadora.getSenha());
+            statement.setString(3, encoder.encode(locadora.getSenha()));
             statement.setString(4, locadora.getCnpj());
             statement.setString(5, locadora.getCidade());
             statement.setInt(6, locadora.getId());

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class UsuarioDAO extends GenericDAO {
 
@@ -27,12 +28,14 @@ public class UsuarioDAO extends GenericDAO {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            
             statement = conn.prepareStatement(sql);
             statement.setString(1, usuario.getEmail());
             statement.setString(2, usuario.getCpf());
             statement.setString(3, usuario.getNome());
             statement.setString(4, usuario.getTelefone());
-            statement.setString(5, usuario.getSenha());
+            statement.setString(5, encoder.encode(usuario.getSenha()));
             statement.setString(6, usuario.getDataNasc());
             statement.setString(7, usuario.getSexo());
             statement.setInt(8, usuario.getAtivo());
@@ -105,12 +108,13 @@ public class UsuarioDAO extends GenericDAO {
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            
             statement.setString(1, usuario.getEmail());
             statement.setString(2, usuario.getCpf());
             statement.setString(3, usuario.getNome());
             statement.setString(4, usuario.getTelefone());
-            statement.setString(5, usuario.getSenha());
+            statement.setString(5, encoder.encode(usuario.getSenha()));
             statement.setString(6, usuario.getDataNasc());
             statement.setString(7, usuario.getSexo());
             statement.setInt(8, usuario.getAtivo());

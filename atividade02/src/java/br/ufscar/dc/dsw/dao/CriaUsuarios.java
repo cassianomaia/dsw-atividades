@@ -1,5 +1,6 @@
 package br.ufscar.dc.dsw.dao;
 
+import br.ufscar.dc.dsw.pojo.Cliente;
 import br.ufscar.dc.dsw.pojo.Papel;
 import br.ufscar.dc.dsw.pojo.Usuario;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,7 +15,6 @@ public class CriaUsuarios {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
 
         // Criando Usuario admin com papel ROLE_ADMIN
-     
         Usuario u1 = new Usuario();
         u1.setEmail("admin@admin");
         u1.setSenha(encoder.encode("admin"));
@@ -29,7 +29,6 @@ public class CriaUsuarios {
         usuarioDAO.update(u1);
 
         // Criando Usuario user com papel ROLE_USER
-        
         Usuario u2 = new Usuario();
         u2.setEmail("user@user");
         u2.setSenha(encoder.encode("user"));
@@ -42,5 +41,6 @@ public class CriaUsuarios {
 
         u2.getPapel().add(p2);
         usuarioDAO.update(u2);
+
     }
 }

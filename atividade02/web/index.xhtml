@@ -7,29 +7,17 @@
         <title>Home Page</title>
     </h:head>
     <h:body>
-        <h2>Bemvindo
+        <h2>Bem vindo
             #{request.getUserPrincipal().getName().toString()}
         </h2>
 
         <h:form>
-            <sec:authorize ifAllGranted="ROLE_ADMIN">
-
-                Este conteúdo só será visível para usuários que desempenhem
-                o papel "ADMIN" <br/><br/>
-
-                <h:commandLink action="admin/index">Área de Administrador</h:commandLink>
-                <h:commandLink action="admin/novoCliente">Novo Cliente</h:commandLink>
-
-            </sec:authorize>
-
-            <sec:authorize ifAllGranted="ROLE_USER">
-                Este conteúdo só será visível para usuários que desempenhem
-                o papel "USER" <br/><br/>
-
-                <h:commandLink action="user/index">Área de Usuário</h:commandLink>
-            </sec:authorize>
-
-
+            <h:commandLink action="cliente/listaClientes.xhtml?faces-redirect=true">CRUD CLIENTES</h:commandLink><br></br>
+            <h:commandLink action="admin/index">CRUD LOCADORAS</h:commandLink><br></br>
+            <h:commandLink action="admin/index">LISTAGEM LOCADORAS</h:commandLink><br></br>
+            <h:commandLink action="admin/index">LOCAÇÃO</h:commandLink><br></br>
+            <h:commandLink action="admin/index">MINHAS LOCAÇÕES</h:commandLink><br></br>
+            <h:commandLink action="admin/index">LOCAÇÕES DE UMA LOCADORA</h:commandLink><br></br>
         </h:form>
     </h:body>
 </html>

@@ -37,8 +37,10 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/user/**").hasRole("USER")
+                .antMatchers("/faces/cliente/**").hasRole("ADMIN")
+                .antMatchers("/faces/locadora/**").hasRole("ADMIN")
+                .antMatchers("/faces/user/**").hasRole("USER")
+                .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

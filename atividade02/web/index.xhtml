@@ -2,7 +2,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:sec="http://www.springframework.org/security/tags">
+      xmlns:sec="http://www.springframework.org/security/tags"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <link rel="stylesheet" href="css/estilo.css" type="text/css"/>
+
     <h:head>
         <title>Home Page</title>
     </h:head>
@@ -12,9 +16,19 @@
         </h2>
 
         <h:form>
-            <h:commandLink action="/faces/cliente/listaClientes.xhtml?faces-redirect=true">CRUD CLIENTES</h:commandLink><br></br>
-            <h:commandLink action="/faces/locadora/listaLocadoras.xhtml?faces-redirect=true">CRUD LOCADORAS</h:commandLink><br></br>
-            <h:commandLink action="admin/index">LISTAGEM LOCADORAS</h:commandLink><br></br>
+            <h:commandLink action="/faces/cliente/listaClientes.xhtml?faces-redirect=true">CRUD Clientes</h:commandLink><br></br>
+            <h:commandLink action="/faces/locadora/listaLocadoras.xhtml?faces-redirect=true">CRUD Locadoras</h:commandLink><br></br>
+            <h:commandLink action="/faces/listaLocadoras.xhtml">Listagem de todas as locadoras</h:commandLink><br></br>
+
+            Listagem por cidade:
+            <h:selectOneMenu id="tipo" value="Listagem por cidade:">
+                <f:selectItem itemLabel="Cel" itemValue="Cel"/>
+                <f:selectItem itemLabel="Com" itemValue="Com"/>
+                <f:selectItem itemLabel="Res" itemValue="Res"/>
+            </h:selectOneMenu>
+            <h:commandButton id="filtrar" value="Pesquisar"/><br></br>
+
+
             <h:commandLink action="admin/index">LOCAÇÃO</h:commandLink><br></br>
             <h:commandLink action="admin/index">MINHAS LOCAÇÕES</h:commandLink><br></br>
             <h:commandLink action="admin/index">LOCAÇÕES DE UMA LOCADORA</h:commandLink><br></br>

@@ -1,6 +1,5 @@
 package br.ufscar.dc.dsw.dao;
 
-import br.ufscar.dc.dsw.pojo.Cliente;
 import br.ufscar.dc.dsw.pojo.Papel;
 import br.ufscar.dc.dsw.pojo.Usuario;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

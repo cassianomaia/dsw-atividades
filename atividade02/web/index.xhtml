@@ -14,20 +14,22 @@
         <h:form>
             <sec:authorize ifAllGranted="ROLE_ADMIN">
 
-                Este conteúdo só será visível para usuários que desempenhem 
+                Este conteúdo só será visível para usuários que desempenhem
                 o papel "ADMIN" <br/><br/>
 
                 <h:commandLink action="admin/index">Área de Administrador</h:commandLink>
-            
+                <h:commandLink action="admin/novoCliente">Novo Cliente</h:commandLink>
+
             </sec:authorize>
 
             <sec:authorize ifAllGranted="ROLE_USER">
-                Este conteúdo só será visível para usuários que desempenhem 
+                Este conteúdo só será visível para usuários que desempenhem
                 o papel "USER" <br/><br/>
 
                 <h:commandLink action="user/index">Área de Usuário</h:commandLink>
-                
             </sec:authorize>
+
+
         </h:form>
     </h:body>
 </html>

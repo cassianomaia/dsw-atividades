@@ -8,6 +8,10 @@
     <h:body>
         <h1>Área Papel: ROLE_ADMIN</h1>
         <br/>
-        <a href="#{request.contextPath}/logout">Logout</a>
+        <h:form>
+            <h:commandLink action="/admin/novoCliente">NovoCliente</h:commandLink>
+            <a href="#{request.contextPath}/logout">Logout</a>
+        </h:form>
+
     </h:body>
 </html>

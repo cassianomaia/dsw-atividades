@@ -16,45 +16,40 @@
         </h:form>
         <br/>
         <h:form>
-            <h:dataTable id="clientes"
-                         summary="Palpites feitos até agora"
+            <h:dataTable id="locadoras"
+                         summary="Locadoras adicionadas até agora"
                          value=""
                          var="palpite">
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="CPF" />
+                        <h:outputText value="email" />
                     </f:facet>
-                    <h:outputText id="cpfCliente" value="" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Nome" />
-                    </f:facet>
-                    <h:outputText id="nomeCliente" value="" />
+                    <h:outputText id="emailLocadora" value="" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Senha" />
                     </f:facet>
-                    <h:outputText id="senhaCliente" value="" />
+                    <h:outputText id="senhaLocadora" value="" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Telefone" />
+                        <h:outputText value="CNPJ" />
                     </f:facet>
-                    <h:outputText id="telefoneCliente" value="" />
+                    <h:outputText id="cnpjLocadora" value="" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Nome" />
+                    </f:facet>
+                    <h:outputText id="nomeLocadora" value="" />
                 </h:column>
                 <h:column>
                     <f:facet name="header">
-                        <h:outputText value="Sexo" />
+                        <h:outputText value="Cidade" />
                     </f:facet>
-                    <h:outputText id="sexoCliente" value="" />
-                </h:column>
-                <h:column>
-                    <f:facet name="header">
-                        <h:outputText value="Data de Nascimento" />
-                    </f:facet>
-                    <h:outputText id="dataNascCliente" value="" />
+                    <h:outputText id="idadeLocadora" value="" />
                 </h:column>
 
 

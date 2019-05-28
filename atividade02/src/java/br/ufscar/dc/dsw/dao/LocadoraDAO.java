@@ -1,7 +1,6 @@
 package br.ufscar.dc.dsw.dao;
 
 import br.ufscar.dc.dsw.pojo.Locadora;
-import br.ufscar.dc.dsw.pojo.Usuario;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -55,5 +54,4 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
         em.remove(locadora);
         tx.commit();
     }
-
 }

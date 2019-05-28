@@ -17,6 +17,15 @@ public class Cliente implements Serializable {
         return ID;
     }
 
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
     private String email;
     private String senha;
     private String CPF;
@@ -24,14 +33,6 @@ public class Cliente implements Serializable {
     private String sexo;
     private String data_nasc;
 
-//    public Cliente(String email, String senha, String CPF, int telefone, String sexo, String data_nasc) {
-//        this.email = email;
-//        this.senha = senha;
-//        this.CPF = CPF;
-//        this.telefone = telefone;
-//        this.sexo = sexo;
-//        this.data_nasc = data_nasc;
-//    }
     public void set_email(String email) {
         this.email = email;
     }

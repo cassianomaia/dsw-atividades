@@ -10,10 +10,14 @@
     <h:body>
         <h1>Lista de Clientes</h1>
         <hr/>
-        <ul>
-            <li>Adicionar novo Cliente</li>
-            <li>Retornar a tela inicial</li>
-        </ul>
+        <!--        <ul>
+                    <li>Adicionar novo Cliente</li>
+                    <li>Retornar a tela inicial</li>-->
+        <h:form>
+            <h:commandLink action="/faces/cliente/novoCliente.xhtml?faces-redirect=true">Adicionar novo Cliente</h:commandLink><br></br>
+            <h:commandLink action="admin/index">Voltar ao início</h:commandLink><br></br>
+        </h:form>
+        <!--        </ul>-->
         <br/>
         <h:form>
             <h:dataTable id="clientes"

@@ -10,10 +10,10 @@
     <h:body>
         <h1>Lista de Locadoras</h1>
         <hr/>
-        <ul>
-            <li>Adicionar nova Locadora</li>
-            <li>Retornar a tela inicial</li>
-        </ul>
+        <h:form>
+            <h:commandLink action="/faces/locadora/novaLocadora.xhtml?faces-redirect=true">Adicionar nova Locadora</h:commandLink><br></br>
+            <h:commandLink action="admin/index">Voltar ao início</h:commandLink><br></br>
+        </h:form>
         <br/>
         <h:form>
             <h:dataTable id="clientes"

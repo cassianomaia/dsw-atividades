@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cliente implements Serializable {
@@ -12,7 +13,18 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
+   
+    private String CPF;
+    private int telefone;
+    private String sexo;
+    private String data_nasc;
+    
+    @OneToOne
+    private Usuario usuario;
 
+    public Cliente() {
+    }
+    
     public Long getID() {
         return ID;
     }
@@ -25,28 +37,6 @@ public class Cliente implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-    private String email;
-    private String senha;
-    private String CPF;
-    private int telefone;
-    private String sexo;
-    private String data_nasc;
-
-    public void set_email(String email) {
-        this.email = email;
-    }
-
-    public String get_email() {
-        return this.email;
-    }
-
-    public void set_senha(String senha) {
-        this.senha = senha;
-    }
-
-    public String get_senha() {
-        return this.senha;
     }
 
     public void set_cpf(String CPF) {
@@ -80,5 +70,12 @@ public class Cliente implements Serializable {
     public String get_data_nasc() {
         return this.data_nasc;
     }
-
+    
+    public void setUsuario(Usuario usuario){
+        this.usuario = usuario;
+    }
+    
+    public Usuario getUsuario(){
+        return this.usuario;
+    }
 }

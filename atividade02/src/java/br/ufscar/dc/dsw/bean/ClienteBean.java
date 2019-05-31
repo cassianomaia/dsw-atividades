@@ -13,8 +13,12 @@ import javax.faces.bean.SessionScoped;
 public class ClienteBean {
     private Cliente cliente;
     
+    public String home(){
+        return "/index.xhtml";
+    }
+    
     public String lista() {
-        return "cliente/index.xhtml";  
+        return "cliente/lista.xhtml";  
     }
     
     public String cadastra() {
@@ -35,7 +39,7 @@ public class ClienteBean {
         }else{
             dao.update(cliente);
         }
-        return "index.xhtml";
+        return "lista.xhtml";
     }
     
     public String delete(Cliente cliente){
@@ -45,7 +49,7 @@ public class ClienteBean {
     }
     
     public String volta(){
-        return "/index.xhtml?faces-redirect=true";
+        return "/lista.xhtml?faces-redirect=true";
     }
     
     public List<Cliente> getClientes() throws SQLException {

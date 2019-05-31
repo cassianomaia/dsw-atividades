@@ -35,25 +35,5 @@ public class CriaUsuarios {
 
         u1.getPapel().add(p1);
         usuarioDAO.update(u1);
-
-        // Criando Usuario user com papel ROLE_USER
-        Usuario u2 = new Usuario();
-        u2.setEmail("user@user");
-        u2.setSenha(encoder.encode("user"));
-        u2.setAtivo(true);
-        usuarioDAO.save(u2);
-
-        u2.getPapel().add(p2);
-        usuarioDAO.update(u2);
-
-        // Criando Usuário locadora com papel ROLE_LOCADORA
-        Usuario u3 = new Usuario();
-        u3.setEmail("locadora@locadora");
-        u3.setSenha(encoder.encode("locadora"));
-        u3.setAtivo(true);
-        usuarioDAO.save(u3);
-
-        u3.getPapel().add(p3);
-        usuarioDAO.update(u3);
     }
 }

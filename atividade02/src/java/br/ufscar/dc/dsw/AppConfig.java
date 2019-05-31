@@ -39,7 +39,7 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/faces/cliente/**").hasRole("ADMIN")
                 .antMatchers("/faces/locadora/**").hasRole("ADMIN")
-                .antMatchers("/faces/usuario/**").hasRole("USER")
+                .antMatchers("/faces/locacao/**").hasRole("USER")
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and()

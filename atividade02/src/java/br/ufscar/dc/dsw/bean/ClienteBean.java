@@ -11,6 +11,7 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class ClienteBean {
+
     private Cliente cliente;
     
     public String home(){
@@ -20,29 +21,29 @@ public class ClienteBean {
     public String lista() {
         return "cliente/lista.xhtml";  
     }
-    
+
     public String cadastra() {
         cliente = new Cliente();
         return "form.xhtml";
     }
-    
-    public String edita(Long id){
+
+    public String edita(Long id) {
         ClienteDAO dao = new ClienteDAO();
         cliente = dao.get(id);
         return "form.xhtml";
     }
-    
-    public String salva(){
+
+    public String salva() {
         ClienteDAO dao = new ClienteDAO();
-        if(cliente.getId() == null){
+        if (cliente.getId() == null) {
             dao.save(cliente);
-        }else{
+        } else {
             dao.update(cliente);
         }
         return "lista.xhtml";
     }
-    
-    public String delete(Cliente cliente){
+
+    public String delete(Cliente cliente) {
         ClienteDAO dao = new ClienteDAO();
         dao.delete(cliente);
         return "index.xhtml";
@@ -51,14 +52,13 @@ public class ClienteBean {
     public String volta(){
         return "/lista.xhtml?faces-redirect=true";
     }
-    
+
     public List<Cliente> getClientes() throws SQLException {
         ClienteDAO dao = new ClienteDAO();
         return dao.getAll();
     }
-    
-    public Cliente getCliente(){
-        return cliente;
-    }    
-}
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+}

@@ -16,7 +16,7 @@
         </h2>
 
         <h:form>
-            <h:commandLink action="/faces/cliente/listaClientes.xhtml?faces-redirect=true">CRUD Clientes</h:commandLink><br></br>
+            <h:commandLink action="#{clienteBean.lista()}">Cliente : CRUD</h:commandLink><br></br>
             <h:commandLink action="/faces/locadora/listaLocadoras.xhtml?faces-redirect=true">CRUD Locadoras</h:commandLink><br></br>
             <h:commandLink action="/faces/listaLocadoras.xhtml">Listagem de todas as locadoras</h:commandLink><br></br>
 
@@ -27,10 +27,6 @@
                 <f:selectItem itemLabel="Res" itemValue="Res"/>
             </h:selectOneMenu>
             <h:commandButton id="filtrar" value="Pesquisar"/><br></br>
-
-            <li>
-                    <h:commandLink action="#{usuarioBean.lista()}">Usuarios: CRUD</h:commandLink>
-            </li>
             <h:commandLink action="admin/index">LOCAÇÃO</h:commandLink><br></br>
             <h:commandLink action="admin/index">MINHAS LOCAÇÕES</h:commandLink><br></br>
             <h:commandLink action="admin/index">LOCAÇÕES DE UMA LOCADORA</h:commandLink><br></br>

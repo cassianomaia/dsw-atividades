@@ -2,18 +2,13 @@ package br.ufscar.dc.dsw.pojo;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Cliente implements Serializable {
+public class Cliente extends Usuario implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
    
+    private String nome;
     private String CPF;
     private int telefone;
     private String sexo;
@@ -24,12 +19,6 @@ public class Cliente implements Serializable {
 
     public Cliente() {
     }
-    
-    public Long getID() {
-        return ID;
-    }
-
-    private String nome;
 
     public String getNome() {
         return nome;

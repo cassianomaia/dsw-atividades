@@ -13,16 +13,25 @@ public class CriaUsuarios {
         PapelDAO papelDAO = new PapelDAO();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
 
+        // Criando papeis utilizados no sistema
+        Papel p1 = new Papel();
+        p1.setNome("ROLE_ADMIN");
+        papelDAO.save(p1);
+        
+        Papel p2 = new Papel();
+        p2.setNome("ROLE_USER");
+        papelDAO.save(p2);
+        
+        Papel p3 = new Papel();
+        p2.setNome("ROLE_LOCADORA");
+        papelDAO.save(p3
+        );
         // Criando Usuario admin com papel ROLE_ADMIN
         Usuario u1 = new Usuario();
         u1.setEmail("admin@admin");
         u1.setSenha(encoder.encode("admin"));
         u1.setAtivo(true);
         usuarioDAO.save(u1);
-
-        Papel p1 = new Papel();
-        p1.setNome("ROLE_ADMIN");
-        papelDAO.save(p1);
 
         u1.getPapel().add(p1);
         usuarioDAO.update(u1);
@@ -34,12 +43,17 @@ public class CriaUsuarios {
         u2.setAtivo(true);
         usuarioDAO.save(u2);
 
-        Papel p2 = new Papel();
-        p2.setNome("ROLE_USER");
-        papelDAO.save(p2);
-
         u2.getPapel().add(p2);
         usuarioDAO.update(u2);
 
+        // Criando Usuário locadora com papel ROLE_LOCADORA
+        Usuario u3 = new Usuario();
+        u3.setEmail("locadora@locadora");
+        u3.setSenha(encoder.encode("locadora"));
+        u3.setAtivo(true);
+        usuarioDAO.save(u3);
+
+        u3.getPapel().add(p3);
+        usuarioDAO.update(u3);
     }
 }

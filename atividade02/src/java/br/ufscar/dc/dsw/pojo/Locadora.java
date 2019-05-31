@@ -2,17 +2,11 @@ package br.ufscar.dc.dsw.pojo;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Locadora implements Serializable {
+public class Locadora extends Usuario implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     private String CNPJ;
     private String nome;
@@ -20,14 +14,6 @@ public class Locadora implements Serializable {
 
     @OneToOne
     private Usuario usuario;
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCNPJ() {
         return CNPJ;

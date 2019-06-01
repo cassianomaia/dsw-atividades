@@ -52,7 +52,7 @@ public class ClienteBean {
     public String delete(Cliente cliente) {
         ClienteDAO dao = new ClienteDAO();
         dao.delete(cliente);
-        return "index.xhtml";
+        return "lista.xhtml";
     }
 
     public String volta() {

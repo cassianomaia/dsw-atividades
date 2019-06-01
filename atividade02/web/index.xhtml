@@ -17,7 +17,7 @@
 
         <h:form>
             <h:commandLink action="#{clienteBean.lista()}">Cliente : CRUD</h:commandLink><br></br>
-            <h:commandLink action="/faces/locadora/listaLocadoras.xhtml?faces-redirect=true">CRUD Locadoras</h:commandLink><br></br>
+            <h:commandLink action="#{locadoraBean.lista()}">CRUD Locadoras</h:commandLink><br></br>
             <h:commandLink action="/faces/listaLocadoras.xhtml">Listagem de todas as locadoras</h:commandLink><br></br>
 
             Listagem por cidade:
@@ -31,5 +31,6 @@
             <h:commandLink action="admin/index">MINHAS LOCAÇÕES</h:commandLink><br></br>
             <h:commandLink action="admin/index">LOCAÇÕES DE UMA LOCADORA</h:commandLink><br></br>
         </h:form>
+        <br />
     </h:body>
 </html>

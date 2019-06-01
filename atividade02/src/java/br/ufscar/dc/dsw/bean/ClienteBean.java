@@ -35,12 +35,14 @@ public class ClienteBean {
     public String salva() {
         ClienteDAO dao = new ClienteDAO();
         cliente.setSenha(encoder.encode(cliente.getSenha()));
-        Papel papelcliente = new PapelDAO.get(2L);
+        long idpapel = 2;
+        Papel papelcliente = new PapelDAO().get(idpapel);
         
         if (cliente.getId() == null) {
             cliente.setAtivo(true);
-            cliente.getPapel().add(papelcliente);
             dao.save(cliente);
+            cliente.getPapel().add(papelcliente);
+            dao.update(cliente);
         } else {
             dao.update(cliente);
         }

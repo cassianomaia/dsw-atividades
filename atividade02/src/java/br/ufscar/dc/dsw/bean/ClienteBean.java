@@ -1,23 +1,22 @@
 package br.ufscar.dc.dsw.bean;
 
 import br.ufscar.dc.dsw.dao.ClienteDAO;
-import br.ufscar.dc.dsw.dao.LocadoraDAO;
+import br.ufscar.dc.dsw.dao.PapelDAO;
 import br.ufscar.dc.dsw.pojo.Cliente;
+import br.ufscar.dc.dsw.pojo.Papel;
 import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @ManagedBean
 @SessionScoped
 public class ClienteBean {
-
+    
+    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     private Cliente cliente;
-
-    public String home() {
-        return "/index.xhtml";
-    }
-
+    
     public String lista() {
         return "cliente/lista.xhtml?faces-redirect=true";
     }
@@ -35,7 +34,12 @@ public class ClienteBean {
 
     public String salva() {
         ClienteDAO dao = new ClienteDAO();
+        cliente.setSenha(encoder.encode(cliente.getSenha()));
+        Papel papelcliente = new PapelDAO.get(2L);
+        
         if (cliente.getId() == null) {
+            cliente.setAtivo(true);
+            cliente.getPapel().add(papelcliente);
             dao.save(cliente);
         } else {
             dao.update(cliente);

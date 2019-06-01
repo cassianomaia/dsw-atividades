@@ -33,35 +33,35 @@ public class Cliente extends Usuario implements Serializable {
         this.nome = nome;
     }
 
-    public void set_cpf(String CPF) {
+    public void setCpf(String CPF) {
         this.CPF = CPF;
     }
 
-    public String get_cpf() {
+    public String getCpf() {
         return this.CPF;
     }
 
-    public void set_telefone(String telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public String get_telefone() {
+    public String getTelefone() {
         return this.telefone;
     }
 
-    public void set_sexo(String sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
-    public String get_sexo() {
+    public String getSexo() {
         return this.sexo;
     }
 
-    public void set_data_nasc(String data_nasc) {
+    public void setData_nasc(String data_nasc) {
         this.data_nasc = data_nasc;
     }
 
-    public String get_data_nasc() {
+    public String getData_nasc() {
         return this.data_nasc;
     }
 

@@ -13,13 +13,13 @@ import javax.faces.bean.SessionScoped;
 public class ClienteBean {
 
     private Cliente cliente;
-    
-    public String home(){
+
+    public String home() {
         return "/index.xhtml";
     }
-    
+
     public String lista() {
-        return "cliente/lista.xhtml";  
+        return "cliente/lista.xhtml?faces-redirect=true";
     }
 
     public String cadastra() {
@@ -48,8 +48,8 @@ public class ClienteBean {
         dao.delete(cliente);
         return "index.xhtml";
     }
-    
-    public String volta(){
+
+    public String volta() {
         return "/lista.xhtml?faces-redirect=true";
     }
 

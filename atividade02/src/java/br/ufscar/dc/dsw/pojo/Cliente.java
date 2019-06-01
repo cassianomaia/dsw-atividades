@@ -9,16 +9,16 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Cacheable(value = false)
-@Table(uniqueConstraints={@UniqueConstraint(columnNames={"cpf"})})
+@Table(uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"cpf"})})
 public class Cliente extends Usuario implements Serializable {
 
-   
     private String nome;
     private String CPF;
-    private int telefone;
+    private String telefone;
     private String sexo;
     private String data_nasc;
-    
+
     @OneToOne
     private Usuario usuario;
 
@@ -41,11 +41,11 @@ public class Cliente extends Usuario implements Serializable {
         return this.CPF;
     }
 
-    public void set_telefone(int telefone) {
+    public void set_telefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public int get_telefone() {
+    public String get_telefone() {
         return this.telefone;
     }
 
@@ -64,12 +64,12 @@ public class Cliente extends Usuario implements Serializable {
     public String get_data_nasc() {
         return this.data_nasc;
     }
-    
-    public void setUsuario(Usuario usuario){
+
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
-    public Usuario getUsuario(){
+
+    public Usuario getUsuario() {
         return this.usuario;
     }
 }

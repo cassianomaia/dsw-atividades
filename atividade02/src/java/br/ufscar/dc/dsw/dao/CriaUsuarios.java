@@ -1,5 +1,7 @@
 package br.ufscar.dc.dsw.dao;
 
+import br.ufscar.dc.dsw.pojo.Cliente;
+import br.ufscar.dc.dsw.pojo.Locadora;
 import br.ufscar.dc.dsw.pojo.Papel;
 import br.ufscar.dc.dsw.pojo.Usuario;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,6 +14,7 @@ public class CriaUsuarios {
 
         PapelDAO papelDAO = new PapelDAO();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
+        ClienteDAO clienteDAO = new ClienteDAO();
 
         // Criando papeis utilizados no sistema
         Papel p1 = new Papel();
@@ -28,12 +31,31 @@ public class CriaUsuarios {
         
         // Criando Usuario admin com papel ROLE_ADMIN
         Usuario u1 = new Usuario();
-        u1.setEmail("admin@admin");
+        u1.setEmail("admin@admin.com");
         u1.setSenha(encoder.encode("admin"));
         u1.setAtivo(true);
         usuarioDAO.save(u1);
 
         u1.getPapel().add(p1);
         usuarioDAO.update(u1);
+        
+        Cliente c1 = new Cliente();
+        c1.setAtivo(true);
+        c1.setCpf("111.111.111-11");
+        c1.setData_nasc("04/03/1996");
+        c1.setEmail("usuario@usuario.com");
+        c1.setNome("Usuario");
+        c1.setSenha(encoder.encode("usuario"));
+        c1.setSexo("Masc");
+        c1.setTelefone("(16)3333-3333");
+        clienteDAO.save(c1);
+        c1.getPapel().add(p2);
+        usuarioDAO.update(c1);
+        
+        Locadora l1 = new Locadora();
+        
+        
+        Locadora l2 = new Locadora();
+        
     }
 }

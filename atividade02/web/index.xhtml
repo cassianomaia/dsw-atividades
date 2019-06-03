@@ -17,9 +17,9 @@
 
         <h:form>
             <h:commandLink action="#{clienteBean.lista()}">Cliente : CRUD</h:commandLink><br></br>
-            <h:commandLink action="#{locadoraBean.lista()}">CRUD Locadoras</h:commandLink><br></br>
+            <h:commandLink action="#{locadoraBean.lista()}">Locadora : CRUD</h:commandLink><br></br>
+            <h:commandLink action="#{locacaoBean.lista(request.getUserPrincipal().getName().toString())}">Locacao : CRUD</h:commandLink><br></br>
             <h:commandLink action="/faces/listaLocadoras.xhtml">Listagem de todas as locadoras</h:commandLink><br></br>
-
             Listagem por cidade:
             <h:selectOneMenu id="tipo" value="Listagem por cidade:">
                 <f:selectItem itemLabel="Cel" itemValue="Cel"/>

@@ -20,11 +20,11 @@ public class Locadora extends Usuario implements Serializable {
     @OneToOne
     private Usuario usuario;
 
-    public String getcnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setcnpj(String cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 

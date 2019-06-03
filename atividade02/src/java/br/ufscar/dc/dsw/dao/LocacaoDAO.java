@@ -5,7 +5,9 @@
  */
 package br.ufscar.dc.dsw.dao;
 
+import br.ufscar.dc.dsw.pojo.Cliente;
 import br.ufscar.dc.dsw.pojo.Locacao;
+import br.ufscar.dc.dsw.pojo.Locadora;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -18,7 +20,7 @@ import javax.persistence.Query;
 public class LocacaoDAO extends GenericDAO<Locacao> {
 
     @Override
-    Locacao get(Long id) {
+    public Locacao get(Long id) {
         EntityManager em = this.getEntityManager();
         Locacao locacao = em.find(Locacao.class, id);
         em.close();
@@ -26,16 +28,35 @@ public class LocacaoDAO extends GenericDAO<Locacao> {
     }
 
     @Override
-    List<Locacao> getAll() {
+    public List<Locacao> getAll() {
         EntityManager em = this.getEntityManager();
-        Query q = em.createQuery("select l from locacao l", Locacao.class);
+        Query q = em.createQuery("select l from Locacao l", Locacao.class);
         List<Locacao> locacoes = q.getResultList();
         em.close();
         return locacoes;
     }
 
+    public List<Locacao> getAllCliente(Cliente cliente) {
+        EntityManager em = this.getEntityManager();
+        Query q = em.createQuery("select l from Locacao l where l.CLIENTE_ID = :cliente", Locacao.class)
+                                .setParameter("cliente", cliente.getId());
+        List<Locacao> locacoes = q.getResultList();
+        em.close();
+        return locacoes;
+    }
+    
+    public List<Locacao> getAllLocadora(Locadora locadora) {
+        EntityManager em = this.getEntityManager();
+        Query q = em.createQuery("select l from Locacao l where l.LOCADORA_ID = :locadora", Locacao.class)
+                                .setParameter("locadora", locadora.getId());
+        List<Locacao> locacoes = q.getResultList();
+        em.close();
+        return locacoes;
+    }
+    
+    
     @Override
-    void save(Locacao locacao) {
+    public void save(Locacao locacao) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -45,7 +66,7 @@ public class LocacaoDAO extends GenericDAO<Locacao> {
     }
 
     @Override
-    void update(Locacao locacao) {
+    public void update(Locacao locacao) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -55,7 +76,7 @@ public class LocacaoDAO extends GenericDAO<Locacao> {
     }
 
     @Override
-    void delete(Locacao locacao) {
+    public void delete(Locacao locacao) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         locacao = em.getReference(Locacao.class, locacao.getId());

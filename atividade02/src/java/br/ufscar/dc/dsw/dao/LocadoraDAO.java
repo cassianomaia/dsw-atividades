@@ -76,6 +76,6 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
         EntityManager em = this.getEntityManager();
         TypedQuery<Locadora> q = em.createQuery("SELECT l FROM Locadora l, Usuario u WHERE l.id = '" + id + "' and l.id = u.id", Locadora.class);
         Locadora l = q.getSingleResult();
-        return l.getcnpj();
+        return l.getCnpj();
     }
 }

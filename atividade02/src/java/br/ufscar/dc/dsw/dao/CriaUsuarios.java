@@ -23,9 +23,9 @@ public class CriaUsuarios {
         papelDAO.save(p2);
         
         Papel p3 = new Papel();
-        p2.setNome("ROLE_LOCADORA");
-        papelDAO.save(p3
-        );
+        p3.setNome("ROLE_LOCADORA");
+        papelDAO.save(p3);
+        
         // Criando Usuario admin com papel ROLE_ADMIN
         Usuario u1 = new Usuario();
         u1.setEmail("admin@admin");

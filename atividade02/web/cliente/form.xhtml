@@ -34,7 +34,7 @@
             <div class="form-group">  
                 <h:outputLabel for="CPF" class="control-label col-sm-4">CPF</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="CPF" value="#{clienteBean.cliente.get_cpf}" class="form-control"   
+                    <h:inputText id="CPF" value="#{clienteBean.cliente.cpf}" class="form-control"   
                                  validatorMessage="CPF necessário!">
                         <f:validateRequired/>
                     </h:inputText>
@@ -45,7 +45,7 @@
             <div class="form-group">  
                 <h:outputLabel for="telefone" class="control-label col-sm-4">Telefone</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="telefone" value="#{clienteBean.cliente.get_telefone}" class="form-control"   
+                    <h:inputText id="telefone" value="#{clienteBean.cliente.telefone}" class="form-control"   
                                  validatorMessage="#{msg['book.year.required.message']}"
                                  a:type="Number" a:min="1500">
                         <f:validateRequired/>
@@ -57,7 +57,7 @@
             <div class="form-group">  
                 <h:outputLabel for="sexo" class="control-label col-sm-4">Sexo</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="sexo" value="#{clienteBean.cliente.get_sexo}" class="form-control"   
+                    <h:inputText id="sexo" value="#{clienteBean.cliente.sexo}" class="form-control"   
                                  validatorMessage="Sexo necessário!">
                         <f:validateRequired/>
                     </h:inputText>
@@ -68,7 +68,7 @@
             <div class="form-group">  
                 <h:outputLabel for="data_nasc" class="control-label col-sm-4">Data de Nascimento</h:outputLabel>  
                 <div class="col-sm-4">  
-                    <h:inputText id="data_nasc" value="#{clienteBean.cliente.get_data_nasc}" class="form-control"   
+                    <h:inputText id="data_nasc" value="#{clienteBean.cliente.data_nasc}" class="form-control"   
                                  validatorMessage="data_nasc necessário!">
                         <f:validateRequired/>
                     </h:inputText>

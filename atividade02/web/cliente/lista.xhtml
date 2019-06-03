@@ -18,11 +18,11 @@
                 <h2><h:outputText value="Lista de Clientes"/></h2>
             </center>
             <br/>
-            <h:dataTable value="#{clienteBean.clientes}" var="clientes"
+            <h:dataTable value="#{clienteBean.clientes}" var="cliente"
                          class="table table-striped table-hover table-bordered">
                 <h:column>
                     <f:facet name="header">ID</f:facet>
-                    <h:outputText value="#{cliente.ID}"/>
+                    <h:outputText value="#{cliente.id}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Nome</f:facet>
@@ -30,7 +30,7 @@
                 </h:column>
                 <h:column>
                     <f:facet name="header">CPF</f:facet>
-                    <h:outputText value="#{cliente.CPF}"/>
+                    <h:outputText value="#{cliente.cpf}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">Telefone</f:facet>

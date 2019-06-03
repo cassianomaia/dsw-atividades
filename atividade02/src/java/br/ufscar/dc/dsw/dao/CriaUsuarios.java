@@ -15,6 +15,7 @@ public class CriaUsuarios {
         PapelDAO papelDAO = new PapelDAO();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         ClienteDAO clienteDAO = new ClienteDAO();
+        LocadoraDAO locadoraDAO = new LocadoraDAO();
 
         // Criando papeis utilizados no sistema
         Papel p1 = new Papel();
@@ -53,7 +54,14 @@ public class CriaUsuarios {
         usuarioDAO.update(c1);
         
         Locadora l1 = new Locadora();
-        
-        
+        l1.setAtivo(true);
+        l1.setCidade("São Carlos");
+        l1.setCnpj("11.477.483/0001-36");
+        l1.setEmail("locadora@locadora.com");
+        l1.setNome("Locadora Faculdade");
+        l1.setSenha(encoder.encode("usuario"));
+        locadoraDAO.save(l1);
+        l1.getPapel().add(p3);
+        usuarioDAO.update(l1);
     }
 }

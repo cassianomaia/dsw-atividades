@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.swing.JOptionPane;
 
 @ManagedBean
 @SessionScoped
@@ -41,12 +42,23 @@ public class LocacaoBean {
     }
 
     public String salva() {
-        LocacaoDAO dao = new LocacaoDAO();
+        LocacaoDAO locacaodao = new LocacaoDAO();
+        int i;
+        List<Locacao> lista = locacaodao.getAll();
         
+        for(i = 0; i<lista.size();i++){
+            if(lista.get(i).getLocadora().equals(locacao.getLocadora()) && lista.get(i).getDia().equals(locacao.getDia()) && lista.get(i).getHorario().equals(locacao.getHorario())){
+                //JOptionPane.showMessageDialog(null, "A locadora não tem o horário disponivel.", "Locação Existente", JOptionPane.ERROR_MESSAGE);
+                return "lista.xhtml";
+            }else if(lista.get(i).getCliente().equals(locacao.getCliente()) && lista.get(i).getDia().equals(locacao.getDia()) && lista.get(i).getHorario().equals(locacao.getHorario())){
+                //JOptionPane.showMessageDialog(null, "O cliente já tem uma locação nesse horário.", "Locação Existente", JOptionPane.ERROR_MESSAGE);
+                return "lista.xhtml";
+            }
+        }
         if (locacao.getId() == null) {
-            dao.save(locacao);
+            locacaodao.save(locacao);
         } else {
-            dao.update(locacao);
+            locacaodao.update(locacao);
         }
         return "lista.xhtml";
     }
@@ -80,14 +92,14 @@ public class LocacaoBean {
             locadora = locadoradao.get(usuario.getId());
             System.out.println("Achou Locadora");
         }
-        return locacaodao.getAllCliente(cliente);
-//        if(cliente != null){
-//            return locacaodao.getAllCliente(cliente);
-//        }else if(locadora != null){
-//            return locacaodao.getAllLocadora(locadora);
-//        }else{
-//            return locacaodao.getAll();
-//        }
+        
+        if(cliente != null){
+            return locacaodao.getAllCliente(cliente);
+        }else if(locadora != null){
+            return locacaodao.getAllLocadora(locadora);
+        }else{
+            return locacaodao.getAll();
+        }
     }
 
     public Locacao getLocacao() {

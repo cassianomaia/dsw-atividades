@@ -91,4 +91,14 @@ public class LocacaoBean {
     public Locacao getLocacao() {
         return locacao;
     }
+    
+    public List<Cliente> getClientes() throws SQLException {
+        ClienteDAO dao = new ClienteDAO();
+        return dao.getAll();
+    }
+    
+    public List<Locadora> getLocadoras() throws SQLException {
+        LocadoraDAO dao = new LocadoraDAO();
+        return dao.getAll();
+    }
 }

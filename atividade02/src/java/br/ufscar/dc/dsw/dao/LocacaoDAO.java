@@ -30,7 +30,7 @@ public class LocacaoDAO extends GenericDAO<Locacao> {
     @Override
     public List<Locacao> getAll() {
         EntityManager em = this.getEntityManager();
-        Query q = em.createQuery("select l from locacao l", Locacao.class);
+        Query q = em.createQuery("select l from Locacao l", Locacao.class);
         List<Locacao> locacoes = q.getResultList();
         em.close();
         return locacoes;
@@ -38,7 +38,7 @@ public class LocacaoDAO extends GenericDAO<Locacao> {
 
     public List<Locacao> getAllCliente(Cliente cliente) {
         EntityManager em = this.getEntityManager();
-        Query q = em.createQuery("select l from locacao l where l.usuario_id = :cliente", Locacao.class)
+        Query q = em.createQuery("select l from Locacao l where l.CLIENTE_ID = :cliente", Locacao.class)
                                 .setParameter("cliente", cliente.getId());
         List<Locacao> locacoes = q.getResultList();
         em.close();
@@ -47,7 +47,7 @@ public class LocacaoDAO extends GenericDAO<Locacao> {
     
     public List<Locacao> getAllLocadora(Locadora locadora) {
         EntityManager em = this.getEntityManager();
-        Query q = em.createQuery("select l from locacao l where l.locadora_id = :locadora", Locacao.class)
+        Query q = em.createQuery("select l from Locacao l where l.LOCADORA_ID = :locadora", Locacao.class)
                                 .setParameter("locadora", locadora.getId());
         List<Locacao> locacoes = q.getResultList();
         em.close();

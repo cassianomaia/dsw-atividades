@@ -2,7 +2,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Crud: Clientes</title>
         <link rel="stylesheet"
@@ -52,7 +53,7 @@
                 <h:column>
                     <f:facet name="header"></f:facet>
                     <h:commandButton action = "#{clienteBean.delete(cliente)}" value="Excluir"
-                                     onclick="return confirm('#{msg['confirm.delete']}');"
+                                     onclick="return confirm('Deseja excluir esse cliente?');"
                                      class="btn btn-danger">
                     </h:commandButton>
                 </h:column>

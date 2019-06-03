@@ -11,7 +11,7 @@ import javax.persistence.UniqueConstraint;
 public class Cliente extends Usuario implements Serializable {
 
     private String nome;
-    private String CPF;
+    private String cpf;
     private String telefone;
     private String sexo;
     private String data_nasc;
@@ -30,12 +30,12 @@ public class Cliente extends Usuario implements Serializable {
         this.nome = nome;
     }
 
-    public void setCpf(String CPF) {
-        this.CPF = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getCpf() {
-        return this.CPF;
+        return this.cpf;
     }
 
     public void setTelefone(String telefone) {

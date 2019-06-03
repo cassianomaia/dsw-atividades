@@ -1,7 +1,6 @@
 package br.ufscar.dc.dsw.pojo;
 
 import java.io.Serializable;
-import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +14,10 @@ public class Locacao implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
-    private Date data;
-    
+    private String dia, horario;
+
     @ManyToOne
-    private Usuario usuario;
+    private Cliente cliente;
     
     @ManyToOne
     private Locadora locadora;
@@ -27,31 +26,40 @@ public class Locacao implements Serializable {
         this.id = id;
     }
 
-    public void setData(Date data) {
-        this.data = data;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public void setLocadora(Locadora locadora) {
         this.locadora = locadora;
     }
     
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+    
+    
     public Long getId() {
         return id;
     }
 
-    public Date getData() {
-        return data;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
+    public Cliente getCliente() {
+        return cliente;
     }
 
     public Locadora getLocadora() {
         return locadora;
+    }
+
+    public String getDia() {
+        return dia;
+    }
+
+    public String getHorario() {
+        return horario;
     }
 }

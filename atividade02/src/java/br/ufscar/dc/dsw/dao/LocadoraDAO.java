@@ -10,6 +10,14 @@ import javax.persistence.TypedQuery;
 public class LocadoraDAO extends GenericDAO<Locadora> {
 
     @Override
+    public Locadora get(Long id) {
+        EntityManager em = this.getEntityManager();
+        Locadora locadora = em.find(Locadora.class, id);
+        em.close();
+        return locadora;
+    }
+
+    @Override
     public void save(Locadora locadora) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -19,6 +27,7 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
         em.close();
     }
 
+    @Override
     public List<Locadora> getAll() {
         EntityManager em = this.getEntityManager();
         Query q = em.createQuery("select l from Locadora l", Locadora.class);
@@ -27,6 +36,7 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
         return locadora;
     }
 
+    @Override
     public void delete(Locadora locadora) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -36,6 +46,7 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
         tx.commit();
     }
 
+    @Override
     public void update(Locadora locadora) {
         EntityManager em = this.getEntityManager();
         EntityTransaction tx = em.getTransaction();
@@ -43,13 +54,6 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
         em.merge(locadora);
         tx.commit();
         em.close();
-    }
-
-    public Locadora get(Long id) {
-        EntityManager em = this.getEntityManager();
-        Locadora locadora = em.find(Locadora.class, id);
-        em.close();
-        return locadora;
     }
 
     public List<Locadora> getAllCidade(String cidade) {
@@ -68,10 +72,10 @@ public class LocadoraDAO extends GenericDAO<Locadora> {
         return cidade;
     }
 
-    public String getCnpj(Long id) {
+    public String getcnpj(Long id) {
         EntityManager em = this.getEntityManager();
         TypedQuery<Locadora> q = em.createQuery("SELECT l FROM Locadora l, Usuario u WHERE l.id = '" + id + "' and l.id = u.id", Locadora.class);
         Locadora l = q.getSingleResult();
-        return l.getCNPJ();
+        return l.getcnpj();
     }
 }

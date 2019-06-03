@@ -13,19 +13,19 @@ import javax.persistence.UniqueConstraint;
     @UniqueConstraint(columnNames = {"cnpj"})})
 public class Locadora extends Usuario implements Serializable {
 
-    private String CNPJ;
+    private String cnpj;
     private String nome;
     private String cidade;
 
     @OneToOne
     private Usuario usuario;
 
-    public String getCNPJ() {
-        return CNPJ;
+    public String getcnpj() {
+        return cnpj;
     }
 
-    public void setCNPJ(String CNPJ) {
-        this.CNPJ = CNPJ;
+    public void setcnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getNome() {

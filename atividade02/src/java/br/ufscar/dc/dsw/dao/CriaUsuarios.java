@@ -55,7 +55,5 @@ public class CriaUsuarios {
         Locadora l1 = new Locadora();
         
         
-        Locadora l2 = new Locadora();
-        
     }
 }

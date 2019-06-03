@@ -18,30 +18,14 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class LocacaoBean {
-    
+    private String email;
     private Locacao locacao;
     private Usuario usuario;
     private Cliente cliente;
     private Locadora locadora;
     
     public String lista(String email) {
-        UsuarioDAO usuariodao = new UsuarioDAO();
-        ClienteDAO clientedao = new ClienteDAO();
-        LocadoraDAO locadoradao = new LocadoraDAO();
-        usuario = usuariodao.getByEmail(email);
-        PapelDAO papeldao = new PapelDAO();
-        long dois = 2;
-        long tres = 3;
-        Papel papelcliente = papeldao.get(dois);
-        Papel papellocadora = papeldao.get(tres);
-        
-        if(usuario.getPapel().contains(papelcliente)){
-            cliente = clientedao.get(usuario.getId());
-            System.out.println("Achou Cliente");
-        }else if(usuario.getPapel().contains(papellocadora)){
-            locadora = locadoradao.get(usuario.getId());
-            System.out.println("Achou Locadora");
-        }
+        this.email = email;
         return "locacao/lista.xhtml?faces-redirect=true";
     }
 
@@ -78,14 +62,32 @@ public class LocacaoBean {
     }
 
     public List<Locacao> getLocacoes() throws SQLException {
-        LocacaoDAO dao = new LocacaoDAO();
-        if(cliente != null){
-            return dao.getAllCliente(cliente);
-        }else if(locadora != null){
-            return dao.getAllLocadora(locadora);
-        }else{
-            return dao.getAll();
+        UsuarioDAO usuariodao = new UsuarioDAO();
+        ClienteDAO clientedao = new ClienteDAO();
+        LocadoraDAO locadoradao = new LocadoraDAO();
+        LocacaoDAO locacaodao = new LocacaoDAO();
+        usuario = usuariodao.getByEmail(email);
+        PapelDAO papeldao = new PapelDAO();
+        long dois = 2;
+        long tres = 3;
+        Papel papelcliente = papeldao.get(dois);
+        Papel papellocadora = papeldao.get(tres);
+        
+        if(usuario.getPapel().contains(papelcliente)){
+            cliente = clientedao.get(usuario.getId());
+            System.out.println("Achou Cliente");
+        }else if(usuario.getPapel().contains(papellocadora)){
+            locadora = locadoradao.get(usuario.getId());
+            System.out.println("Achou Locadora");
         }
+        return locacaodao.getAllCliente(cliente);
+//        if(cliente != null){
+//            return locacaodao.getAllCliente(cliente);
+//        }else if(locadora != null){
+//            return locacaodao.getAllLocadora(locadora);
+//        }else{
+//            return locacaodao.getAll();
+//        }
     }
 
     public Locacao getLocacao() {

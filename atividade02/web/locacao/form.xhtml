@@ -46,7 +46,8 @@
                 <h:outputLabel for="cliente" class="control-label col-sm-4">Cliente</h:outputLabel>  
                 <div class="col-sm-4">
                     <h:selectOneMenu id="cliente" value="#{locacaoBean.locacao.cliente}">
-                        <f:selectItems value="#{locacaoBean.clientes}"/>
+                        <f:selectItems value="#{locacaoBean.clientes}" var="cliente" 
+                                       itemLabel="#{cliente.nome}" itemValue="#{cliente}"/>
                         <f:converter converterId="ClienteConverter" />
                     </h:selectOneMenu>
                     <h:message for="cliente"/>
@@ -57,7 +58,8 @@
                 <h:outputLabel for="locadora" class="control-label col-sm-4">Locadora</h:outputLabel>  
                 <div class="col-sm-4">
                     <h:selectOneMenu id="locadora" value="#{locacaoBean.locacao.locadora}">
-                        <f:selectItems value="#{locacaoBean.locadoras}"/>
+                        <f:selectItems value="#{locacaoBean.locadoras}" var="locadora" 
+                                       itemLabel="#{locadora.nome}" itemValue="#{locadora}"/>
                         <f:converter converterId="LocadoraConverter" />
                     </h:selectOneMenu>
                     <h:message for="locadora"/>

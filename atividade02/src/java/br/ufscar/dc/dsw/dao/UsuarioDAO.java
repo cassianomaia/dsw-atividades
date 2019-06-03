@@ -54,4 +54,12 @@ public class UsuarioDAO extends GenericDAO<Usuario>{
         em.close();
         return usuario;
     }
+    
+     public Usuario getByEmail(String email) {
+        EntityManager em = this.getEntityManager();
+        Usuario usuario = em.createQuery("select u from Usuario u where u.email = :email", Usuario.class
+                                        ).setParameter("email",email).getSingleResult();
+        em.close();
+        return usuario;
+    }
 }

@@ -14,7 +14,8 @@ public class Locacao implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
-    private String dia, horario;
+    private String dia;
+    private String horario;
 
     @ManyToOne
     private Cliente cliente;

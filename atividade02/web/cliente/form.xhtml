@@ -46,7 +46,7 @@
                 <h:outputLabel for="telefone" class="control-label col-sm-4">Telefone</h:outputLabel>  
                 <div class="col-sm-4">  
                     <h:inputText id="telefone" value="#{clienteBean.cliente.telefone}" class="form-control"   
-                                 validatorMessage="#{msg['book.year.required.message']}"
+                                 validatorMessage="Telefone necessário!"
                                  a:type="Number" a:min="1500">
                         <f:validateRequired/>
 

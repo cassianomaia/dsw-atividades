@@ -5,7 +5,9 @@
  */
 package br.ufscar.dc.dsw.dao;
 
+import br.ufscar.dc.dsw.pojo.Cliente;
 import br.ufscar.dc.dsw.pojo.Locacao;
+import br.ufscar.dc.dsw.pojo.Locadora;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -34,6 +36,25 @@ public class LocacaoDAO extends GenericDAO<Locacao> {
         return locacoes;
     }
 
+    public List<Locacao> getAllCliente(Cliente cliente) {
+        EntityManager em = this.getEntityManager();
+        Query q = em.createQuery("select l from locacao l where l.usuario_id = :cliente", Locacao.class)
+                                .setParameter("cliente", cliente.getId());
+        List<Locacao> locacoes = q.getResultList();
+        em.close();
+        return locacoes;
+    }
+    
+    public List<Locacao> getAllLocadora(Locadora locadora) {
+        EntityManager em = this.getEntityManager();
+        Query q = em.createQuery("select l from locacao l where l.locadora_id = :locadora", Locacao.class)
+                                .setParameter("locadora", locadora.getId());
+        List<Locacao> locacoes = q.getResultList();
+        em.close();
+        return locacoes;
+    }
+    
+    
     @Override
     public void save(Locacao locacao) {
         EntityManager em = this.getEntityManager();

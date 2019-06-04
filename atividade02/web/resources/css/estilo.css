@@ -15,91 +15,113 @@ table, th, td {
     color: white;
 }
 
-.button {
-    -moz-border-radius:28px;
-    -webkit-border-radius:28px;
-    border-radius:28px;
-    border:1px solid #2a2b2d;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Verdana;
-    font-size:17px;
-    padding:16px 31px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #2f6627;
+/* The sidebar menu */
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
 }
 
-.button:hover {
-    background-color: white;
-    color: #424141;
-}
-* {
-    box-sizing: border-box;
-}
-
-.button:active {
-    position:relative;
-    top:1px;
-}
-
-.botoes {
-    float: left;
-    width: 20%;
-    height: 740px;
-    background: #ccc;
-    padding: 20px;
-}
-
-.botoes ul {
-    list-style: none;
-    margin: 0;
-    padding:0;
-}
-
-
-.botoes li a:link, #navigation li a:visited {
-    -moz-border-radius:28px;
-    -webkit-border-radius:28px;
-    border-radius:28px;
-    border:1px solid #2a2b2d;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Verdana;
-    font-size:17px;
-    padding:16px 31px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #2f6627;
-
-    background-color: #2a2b2d;
-    margin-top: 15px;
-    display: block;
-    padding: 5px 5px 5px 0.5em;
-    border-left: 12px solid black;
-    border-right: 1px solid black;
+/* The sidebar links */
+.sidebar a {
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
-.conteudo {
-    float: right;
-    padding: 20px;
-    width: 80%;
-    background-color: #f1f1f1;
-    height: 740px;
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: #f1f1f1;
 }
 
-.erro {
-    margin-left: 500px;
-    margin-right: 500px;
-    margin-top: 200px;
-    background-color: #2a2b2d;
-    font-size: 18px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
     color: white;
+    padding: 10px 15px;
+    border: none;
 }
 
-form#j_idt37{
-    width: 80%;
+.openbtn:hover {
+    background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s; /* If you want a transition effect */
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
 }

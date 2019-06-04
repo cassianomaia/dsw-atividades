@@ -2,7 +2,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:sec="http://www.springframework.org/security/tags">
     <h:head>
         <title>Crud: Clientes</title>
         <link rel="stylesheet"
@@ -50,10 +51,12 @@
                 </h:column>
             </h:dataTable>
             <br/>
-            <center>
+            <sec:authorize ifAllGranted="ROLE_USER">
+            <center>    
                 <h:commandButton action = "#{locacaoBean.cadastra()}"
                                  value="Cadastrar" class="btn btn-primary"></h:commandButton>
             </center>
+            </sec:authorize>
             <br/>
             <center>
                 <h:commandButton action = "/index.xhtml"

@@ -3,11 +3,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:sec="http://www.springframework.org/security/tags"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
-        <h:outputStylesheet library="css" name="estilo.css"/>
+        <h:outputStylesheet library="css" name="/estilo.css"/>
         <title>Home Page</title>
     </h:head>
     <h:body>
@@ -17,9 +17,6 @@
                 <a><h:commandLink action="#{clienteBean.lista()}">Cliente : CRUD</h:commandLink></a>
                 <a><h:commandLink action="#{locadoraBean.lista()}">Locadora : CRUD</h:commandLink></a>
                 <a><h:commandLink action="#{locacaoBean.lista(request.getUserPrincipal().getName().toString())}">Locacao : CRUD</h:commandLink></a>
-                <a><h:commandLink action="admin/index">LOCAÇÃO</h:commandLink></a>
-                <a><h:commandLink action="admin/index">MINHAS LOCAÇÕES</h:commandLink></a>
-                <a><h:commandLink action="admin/index">LOCAÇÕES DE UMA LOCADORA</h:commandLink></a>
             </h:form>
         </div>
 
@@ -29,18 +26,59 @@
                 <h1>Bem-vindo</h1>
                 <p>Desenvolvimento Web - Trabalho 2</p>
 
-
-
-
                 <h2>Listagem de locadora por cidade:</h2><br></br>
 
+                <h:form id="form" class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <p:selectOneMenu id="pesquisa_cidade" value="#{locadoraBean.cidade}">
+                                <f:selectItem itemLabel="Selecionar" itemValue="" />
+                                <f:selectItems value="#{locadoraBean.locadorasCidades}" />
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+                    <br></br>
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            <div class="col-sm-2">
+                                <h:commandButton value="Pesquisar" action="#{locadoraBean.filtra()}" class="btn btn-success"
+                                                 style="width: 80px; background: black"></h:commandButton>
+                            </div>
+                        </div>
+                    </div>
+                    <br></br>
+                </h:form>
 
-                <h:selectOneMenu id="tipo" value="Listagem por cidade:">
-                    <f:selectItem itemLabel="Cel" itemValue="Cel"/>
-                    <f:selectItem itemLabel="Com" itemValue="Com"/>
-                    <f:selectItem itemLabel="Res" itemValue="Res"/>
-                </h:selectOneMenu>
-                <input id="j_idt6:filtrar" type="submit" name="j_idt6:filtrar" value="Pesquisar"></input>
+                <h:form>
+                    <h:dataTable style="width: 100%"
+                                 id="lista_locadoras"
+                                 summary="listaLocadoras"
+                                 value="#{locadoraBean.locadoras}"
+                                 var="locadora">
+
+                        <h:column>
+                            <f:facet name="header">Nome</f:facet>
+                            <h:outputText id="nomeLocadora" style="color: #cccccc" value="#{locadora.nome}" />
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">CNPJ</f:facet>
+                            <h:outputText id="cnpjLocadora" style="color: #cccccc" value="#{locadora.cnpj}" />
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Cidade</f:facet>
+                            <h:outputText id="cidadeLocadora" style="color: #cccccc" value="#{locadora.cidade}" />
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">E-mail</f:facet>
+                            <h:outputText id="emailLocadora" style="color: #cccccc" value="#{locadora.email}" />
+                        </h:column>
+
+                    </h:dataTable>
+                </h:form>
+
             </center>
         </div>
         <script>

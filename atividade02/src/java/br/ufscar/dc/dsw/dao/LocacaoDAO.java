@@ -38,8 +38,8 @@ public class LocacaoDAO extends GenericDAO<Locacao> {
 
     public List<Locacao> getAllCliente(Cliente cliente) {
         EntityManager em = this.getEntityManager();
-        Query q = em.createQuery("select * FROM Locacao l where l.cliente_id = :cliente", Locacao.class)
-                                .setParameter("cliente", cliente.getId());
+        Query q = em.createQuery("select l from Locacao l where l.cliente = :cliente", Locacao.class)
+                                .setParameter("cliente", cliente);
         List<Locacao> locacoes = q.getResultList();
         em.close();
         return locacoes;
@@ -47,8 +47,8 @@ public class LocacaoDAO extends GenericDAO<Locacao> {
     
     public List<Locacao> getAllLocadora(Locadora locadora) {
         EntityManager em = this.getEntityManager();
-        Query q = em.createQuery("select * from Locacao l where LOCADORA_ID = :locadora", Locacao.class)
-                                .setParameter("locadora", locadora.getId());
+        Query q = em.createQuery("select l from Locacao l where l.locadora = :locadora", Locacao.class)
+                                .setParameter("locadora", locadora);
         List<Locacao> locacoes = q.getResultList();
         em.close();
         return locacoes;

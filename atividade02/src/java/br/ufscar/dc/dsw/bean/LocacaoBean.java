@@ -84,18 +84,12 @@ public class LocacaoBean {
         long tres = 3;
         Papel papelcliente = papeldao.get(dois);
         Papel papellocadora = papeldao.get(tres);
-        
-        if(usuario.getPapel().contains(papelcliente)){
+        List<Papel> papelusuario = usuario.getPapel();
+        if (papelusuario.get(0).equals(papelcliente)){
             cliente = clientedao.get(usuario.getId());
-            System.out.println("Achou Cliente");
-        }else if(usuario.getPapel().contains(papellocadora)){
-            locadora = locadoradao.get(usuario.getId());
-            System.out.println("Achou Locadora");
-        }
-        
-        if(cliente != null){
             return locacaodao.getAllCliente(cliente);
-        }else if(locadora != null){
+        }else if(papelusuario.get(0).equals(papellocadora)){
+            locadora = locadoradao.get(usuario.getId());
             return locacaodao.getAllLocadora(locadora);
         }else{
             return locacaodao.getAll();

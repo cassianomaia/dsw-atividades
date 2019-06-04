@@ -59,7 +59,7 @@ public class CriaUsuarios {
         l1.setCnpj("11.477.483/0001-36");
         l1.setEmail("locadora@locadora.com");
         l1.setNome("Locadora Faculdade");
-        l1.setSenha(encoder.encode("usuario"));
+        l1.setSenha(encoder.encode("locadora"));
         locadoraDAO.save(l1);
         l1.getPapel().add(p3);
         usuarioDAO.update(l1);

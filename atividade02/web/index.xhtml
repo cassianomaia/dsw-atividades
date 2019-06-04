@@ -14,16 +14,31 @@
         <div id="mySidebar" class="sidebar">
             <h:form>
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <sec:authorize ifAllGranted="ROLE_ADMIN">
                 <a><h:commandLink action="#{clienteBean.lista()}">Cliente : CRUD</h:commandLink></a>
                 <a><h:commandLink action="#{locadoraBean.lista()}">Locadora : CRUD</h:commandLink></a>
+                </sec:authorize>
+                
+                <sec:authorize ifAllGranted="ROLE_USER">
                 <a><h:commandLink action="#{locacaoBean.lista(request.getUserPrincipal().getName().toString())}">Locacao : CRUD</h:commandLink></a>
+                </sec:authorize>
+                <sec:authorize ifAllGranted="ROLE_LOCADORA">
+                <a><h:commandLink action="#{locacaoBean.lista(request.getUserPrincipal().getName().toString())}">Locacao : CRUD</h:commandLink></a>
+                </sec:authorize>
+                <sec:authorize access="!isAuthenticated()">
+                    <a href="#{request.contextPath}/login">Login</a>
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                    <a href="#{request.contextPath}/logout">Logout</a>
+                </sec:authorize>
+                
             </h:form>
         </div>
 
         <div id="main">
             <button class="openbtn" onclick="openNav()">&#9776; Menu</button>
             <center>
-                <h1>Bem-vindo</h1>
+                <h1>Bem-vindo #{request.getUserPrincipal().getName().toString()}</h1>
                 <p>Desenvolvimento Web - Trabalho 2</p>
 
                 <h2>Listagem de locadora por cidade:</h2><br></br>
@@ -42,7 +57,7 @@
                         <div class="col-sm-4">
                             <div class="col-sm-2">
                                 <h:commandButton value="Pesquisar" action="#{locadoraBean.filtra()}" class="btn btn-success"
-                                                 style="width: 80px; background: black"></h:commandButton>
+                                                 style="width: 80px;"></h:commandButton>
                             </div>
                         </div>
                     </div>

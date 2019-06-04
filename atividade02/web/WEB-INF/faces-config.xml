@@ -14,10 +14,4 @@
             <var>msg</var>
         </resource-bundle>
     </application>-->
-    
-    <factory>
-        <exception-handler-factory>
-            br.ufscar.dc.dsw.CustomExceptionHandlerFactory
-        </exception-handler-factory>
-    </factory>
 </faces-config>

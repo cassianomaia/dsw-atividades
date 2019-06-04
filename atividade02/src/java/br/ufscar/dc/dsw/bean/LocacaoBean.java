@@ -43,9 +43,13 @@ public class LocacaoBean {
 
     public String salva() {
         LocacaoDAO locacaodao = new LocacaoDAO();
+        UsuarioDAO usuariodao = new UsuarioDAO();
+        ClienteDAO clientedao = new ClienteDAO();
         int i;
         List<Locacao> lista = locacaodao.getAll();
-        
+        usuario = usuariodao.getByEmail(email);
+        Cliente cliente = clientedao.get(usuario.getId());
+        locacao.setCliente(cliente);
         for(i = 0; i<lista.size();i++){
             if(lista.get(i).getLocadora().equals(locacao.getLocadora()) && lista.get(i).getDia().equals(locacao.getDia()) && lista.get(i).getHorario().equals(locacao.getHorario())){
                 //JOptionPane.showMessageDialog(null, "A locadora não tem o horário disponivel.", "Locação Existente", JOptionPane.ERROR_MESSAGE);

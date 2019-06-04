@@ -4,7 +4,9 @@ Nome: LocadoraBD2
 usuario: root
 senha: root
 
-2 - Executar o arquivo que popula o banco de dados, encontrado em:
+2 - Copiar os jars dos projetos LivrariaJSF e LoginJSF
+
+3 - Executar o arquivo que popula o banco de dados, encontrado em:
 dsw-atividades/atividade02/src/java/br/ufscar/dc/dsw/dao/CriaUsuarios.java
 
-3 - Executar o projeto no Netbeans
+4 - Executar o projeto no Netbeans

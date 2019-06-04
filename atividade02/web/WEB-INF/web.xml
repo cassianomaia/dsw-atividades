@@ -8,6 +8,11 @@
         <param-name>javax.faces.FACELETS_LIBRARIES</param-name>
         <param-value>/WEB-INF/springsecurity.taglib.xml</param-value>
     </context-param>
+    <dependency>
+        <groupId>org.primefaces</groupId>
+        <artifactId>primefaces</artifactId>
+        <version>7.0</version>
+    </dependency>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -15,7 +20,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
+        <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -23,6 +28,30 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+        <welcome-file>index.jsf</welcome-file>
     </welcome-file-list>
+    <error-page>
+	<error-code>404</error-code>
+	<location>/erro/404.xhtml</location>
+    </error-page>
+    <error-page>
+	<error-code>500</error-code>
+	<location>/erro/500.xhtml</location>
+    </error-page>
+    <error-page>
+	<error-code>403</error-code>
+	<location>/erro/403.xhtml</location>
+    </error-page>
+    <error-page>
+	<error-code>400</error-code>
+	<location>/erro/400.xhtml</location>
+    </error-page>
+    <error-page>
+	<exception-type>java.lang.Exception</exception-type>
+	<location>/erro/erro.xhtml</location>
+    </error-page>
+    <error-page>
+	<exception-type>java.lang.Throwable</exception-type>
+	<location>/erro/erro.xhtml</location>
+    </error-page>
 </web-app>

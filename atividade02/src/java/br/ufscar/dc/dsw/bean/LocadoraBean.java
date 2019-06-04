@@ -12,6 +12,7 @@ import br.ufscar.dc.dsw.pojo.Cliente;
 import br.ufscar.dc.dsw.pojo.Locadora;
 import br.ufscar.dc.dsw.pojo.Papel;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -26,7 +27,25 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class LocadoraBean {
 
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
     private Locadora locadora;
+    private String cidade;
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public String home() {
+        return "index.xhtml";
+    }
+
+    public String filtra() {
+        return "index.xhtml";
+    }
 
     public String lista() {
         return "locadora/listaLocadoras.xhtml?faces-redirect=true";
@@ -45,6 +64,11 @@ public class LocadoraBean {
         LocadoraDAO dao = new LocadoraDAO();
         locadora = dao.get(id);
         return "formulario.xhtml";
+    }
+
+    public List<String> getLocadorasCidades() throws SQLException {
+        LocadoraDAO dao = new LocadoraDAO();
+        return dao.getCidades();
     }
 
     public String salva() {
@@ -76,10 +100,33 @@ public class LocadoraBean {
 
     public List<Locadora> getLocadoras() throws SQLException {
         LocadoraDAO dao = new LocadoraDAO();
-        return dao.getAll();
+        if (cidade == null || cidade.equals("")) {
+            return dao.getAll();
+        } else {
+            return dao.getAllCidade(cidade);
+        }
     }
 
     public Locadora getLocadora() {
         return locadora;
+    }
+
+    public String listaBusca() {
+        return "listaLocadoras.xhtml";
+    }
+
+    public List<String> autoComplete(String query) {
+        LocadoraDAO dao = new LocadoraDAO();
+        List<Locadora> locadoras = dao.getAll();
+        List<String> filteredCidades = new ArrayList<>();
+
+        filteredCidades.add("Selecione");
+        for (int i = 0; i < locadoras.size(); i++) {
+            Locadora skin = locadoras.get(i);
+            if (skin.getCidade().toLowerCase().contains(query)) {
+                filteredCidades.add(skin.getCidade());
+            }
+        }
+        return filteredCidades;
     }
 }

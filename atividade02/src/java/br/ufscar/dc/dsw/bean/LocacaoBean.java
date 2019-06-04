@@ -14,34 +14,19 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.swing.JOptionPane;
 
 @ManagedBean
 @SessionScoped
 public class LocacaoBean {
-    
+    private String email;
     private Locacao locacao;
     private Usuario usuario;
     private Cliente cliente;
     private Locadora locadora;
     
     public String lista(String email) {
-        UsuarioDAO usuariodao = new UsuarioDAO();
-        ClienteDAO clientedao = new ClienteDAO();
-        LocadoraDAO locadoradao = new LocadoraDAO();
-        usuario = usuariodao.getByEmail(email);
-        PapelDAO papeldao = new PapelDAO();
-        long dois = 2;
-        long tres = 3;
-        Papel papelcliente = papeldao.get(dois);
-        Papel papellocadora = papeldao.get(tres);
-        
-        if(usuario.getPapel().contains(papelcliente)){
-            cliente = clientedao.get(usuario.getId());
-            System.out.println("Achou Cliente");
-        }else if(usuario.getPapel().contains(papellocadora)){
-            locadora = locadoradao.get(usuario.getId());
-            System.out.println("Achou Locadora");
-        }
+        this.email = email;
         return "locacao/lista.xhtml?faces-redirect=true";
     }
 
@@ -57,12 +42,23 @@ public class LocacaoBean {
     }
 
     public String salva() {
-        LocacaoDAO dao = new LocacaoDAO();
+        LocacaoDAO locacaodao = new LocacaoDAO();
+        int i;
+        List<Locacao> lista = locacaodao.getAll();
         
+        for(i = 0; i<lista.size();i++){
+            if(lista.get(i).getLocadora().equals(locacao.getLocadora()) && lista.get(i).getDia().equals(locacao.getDia()) && lista.get(i).getHorario().equals(locacao.getHorario())){
+                //JOptionPane.showMessageDialog(null, "A locadora não tem o horário disponivel.", "Locação Existente", JOptionPane.ERROR_MESSAGE);
+                return "lista.xhtml";
+            }else if(lista.get(i).getCliente().equals(locacao.getCliente()) && lista.get(i).getDia().equals(locacao.getDia()) && lista.get(i).getHorario().equals(locacao.getHorario())){
+                //JOptionPane.showMessageDialog(null, "O cliente já tem uma locação nesse horário.", "Locação Existente", JOptionPane.ERROR_MESSAGE);
+                return "lista.xhtml";
+            }
+        }
         if (locacao.getId() == null) {
-            dao.save(locacao);
+            locacaodao.save(locacao);
         } else {
-            dao.update(locacao);
+            locacaodao.update(locacao);
         }
         return "lista.xhtml";
     }
@@ -78,13 +74,25 @@ public class LocacaoBean {
     }
 
     public List<Locacao> getLocacoes() throws SQLException {
-        LocacaoDAO dao = new LocacaoDAO();
-        if(cliente != null){
-            return dao.getAllCliente(cliente);
-        }else if(locadora != null){
-            return dao.getAllLocadora(locadora);
+        UsuarioDAO usuariodao = new UsuarioDAO();
+        ClienteDAO clientedao = new ClienteDAO();
+        LocadoraDAO locadoradao = new LocadoraDAO();
+        LocacaoDAO locacaodao = new LocacaoDAO();
+        usuario = usuariodao.getByEmail(email);
+        PapelDAO papeldao = new PapelDAO();
+        long dois = 2;
+        long tres = 3;
+        Papel papelcliente = papeldao.get(dois);
+        Papel papellocadora = papeldao.get(tres);
+        List<Papel> papelusuario = usuario.getPapel();
+        if (papelusuario.get(0).equals(papelcliente)){
+            cliente = clientedao.get(usuario.getId());
+            return locacaodao.getAllCliente(cliente);
+        }else if(papelusuario.get(0).equals(papellocadora)){
+            locadora = locadoradao.get(usuario.getId());
+            return locacaodao.getAllLocadora(locadora);
         }else{
-            return dao.getAll();
+            return locacaodao.getAll();
         }
     }
 

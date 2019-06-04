@@ -44,4 +44,18 @@ public class Papel implements Serializable {
     public void setUsuario(List<Usuario> usuario) {
         this.usuario = usuario;
     }
+    
+    @Override
+    public boolean equals(Object object) {
+        return (object instanceof Papel) && (id != null) 
+             ? id.equals(((Papel) object).id) 
+             : (object == this);
+    }
+
+    @Override
+    public int hashCode() {
+        return (id != null)
+             ? (Papel.class.hashCode() + id.hashCode())
+             : super.hashCode();
+    }
 }
